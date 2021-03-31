@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:chip="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+xmlns:calendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
+xmlns:cardLayout="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="smiqs.Views.MainMenu">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Dashboard">
+        <StackLayout>
+
+            <CarouselView x:Name="myCarousel" ItemsSource="{Binding Monkeys}">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+
+                            <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="5"
+                       Margin="20"
+                       HeightRequest="300"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand">
+                                <StackLayout>
+                                    <Label Text="{Binding SSA}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                                    <Image Source="{Binding SSB}"
+                               Aspect="AspectFill"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               HorizontalOptions="Center" />
+                                    <Label Text="{Binding DeviceID}"
+                               HorizontalOptions="Center" />
+                                    <Label Text="{Binding GlobalWeatherDescription}"
+                               FontAttributes="Italic"
+                               HorizontalOptions="Center"
+                               MaxLines="5"
+                               LineBreakMode="TailTruncation" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <ListView ItemsSource="{Binding Monkeys}"
+          HasUnevenRows="true"
+          ItemSelected="OnListViewItemSelected"
+          ItemTapped="OnListViewItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
+                           Source="{Binding SSB}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                                <Label Grid.Column="1"
+                           Text="{Binding SSA}"
+                           FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding GlobalWeatherDescription}"
+                           VerticalOptions="End" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Control" >
+        <StackLayout>
+            <chip:SfSwitch />
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Settings" />
+</TabbedPage>

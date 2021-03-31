@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+      xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+      x:Class="smiqs.Views.Templates.AnalyticsChartTemplate">
+    <Grid.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Grid.Resources>
+    <Grid RowSpacing="0" ColumnSpacing="0" HeightRequest="409">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <gradient:SfGradientView Grid.RowSpan="4">
+            <gradient:SfGradientView.BackgroundBrush>
+                <gradient:SfLinearGradientBrush>
+                    <gradient:SfLinearGradientBrush.GradientStops>
+                        <gradient:SfGradientStop Color="White" Offset="0.0" />
+                        <gradient:SfGradientStop Color="White" Offset="1.0" />
+                    </gradient:SfLinearGradientBrush.GradientStops>
+                </gradient:SfLinearGradientBrush>
+            </gradient:SfGradientView.BackgroundBrush>
+        </gradient:SfGradientView>
+        <chart:SfChart  Margin="10,0,10,26" HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource Transparent}">
+            <chart:SfChart.PrimaryAxis>
+                
+                <chart:CategoryAxis
+                   
+                    ShowMajorGridLines="False"
+                    Interval="200"
+                    EdgeLabelsDrawingMode="Shift">
+                    
+                    <chart:CategoryAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle 
+                            Margin="0,8,0,0" 
+                            
+                            TextColor="Black" 
+                            FontSize="10"
+                            
+                            WrappedLabelAlignment="End"
+                            FontFamily="{DynamicResource Montserrat-Medium}" />
+                    </chart:CategoryAxis.LabelStyle>
+                    <chart:CategoryAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="5" />
+                    </chart:CategoryAxis.AxisLineStyle>
+                    <chart:CategoryAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="0" StrokeWidth="0" />
+                    </chart:CategoryAxis.MajorTickStyle>
+                </chart:CategoryAxis>
+                
+            </chart:SfChart.PrimaryAxis>
+
+            <chart:SfChart.SecondaryAxis>
+
+                <chart:NumericalAxis  Minimum="35" Maximum="75" Interval="10" ShowMinorGridLines="True" IsVisible="True" 
+                                     ShowMajorGridLines="True">
+                    <chart:NumericalAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="3" />
+                    </chart:NumericalAxis.AxisLineStyle>
+                    <chart:NumericalAxis.Title>
+
+                        <chart:ChartAxisTitle Text="Soil Health" TextColor="Black" Font="Bold,12"/>
+
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+
+            <chart:SfChart.Legend>
+                <chart:ChartLegend ToggleSeriesVisibility="True" Margin="0,29,0,0" DockPosition="Bottom" IconWidth="8" IconHeight="8" 
+                                   Orientation="Horizontal">
+                    <chart:ChartLegend.LabelStyle>
+                        <chart:ChartLegendLabelStyle Margin="10,0,24,0" TextColor="Black" 
+                                                     FontSize="12" FontFamily="{DynamicResource Montserrat-Medium}" />
+                    </chart:ChartLegend.LabelStyle>
+                </chart:ChartLegend>
+            </chart:SfChart.Legend>
+            <chart:SfChart.ChartBehaviors>
+
+                <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+
+            </chart:SfChart.ChartBehaviors>
+            <chart:SfChart.Series>
+                <chart:SplineSeries EnableDataPointSelection="True" ItemsSource ="{Binding ChartData}" XBindingPath="XValue"
+	  					YBindingPath="Income" SplineType="Natural" />
+            </chart:SfChart.Series>
+
+
+
+        </chart:SfChart>
+        
+    </Grid>
+</Grid>

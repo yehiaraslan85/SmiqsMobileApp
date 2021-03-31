@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:viewModel="clr-namespace:smiqs.ViewModels.Navigation"
+             x:Class="smiqs.Views.Navigation.SettingsPage" 
+             BackgroundColor="{DynamicResource Gray-White}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+      ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+      <ScrollView>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Label Grid.Row="0" Grid.ColumnSpan="3"
+                  FontFamily="{StaticResource Montserrat-Medium}"
+                  FontSize="16"
+                  Margin="0,4,0,0"
+                  HeightRequest="45"  
+                  VerticalTextAlignment="Center"
+                  HorizontalOptions="CenterAndExpand"
+                  LineHeight="{OnPlatform Android=1.5,
+                                            Default=-1}"
+                  Text="Welcome to Smiqs"
+                  TextColor="{DynamicResource Gray-900}"
+                  VerticalOptions="Center" />
+                <inputLayout:SfTextInputLayout Grid.Row="1" Grid.ColumnSpan="3"
+            ContainerType="Outlined" 
+            Hint="Name"             
+            ReserveSpaceForAssistiveLabels="False">
+                    <Entry Text="{Binding Namevar, Mode=TwoWay}" FontSize="16" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Grid.Row="2" Grid.ColumnSpan="3"
+            ContainerType="Outlined" 
+            Hint="Email"
+            ReserveSpaceForAssistiveLabels="False">
+                    <Entry Text="{Binding Emailvar, Mode=TwoWay}" FontSize="16" />
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Grid.Row="3" Grid.ColumnSpan="3"
+            ContainerType="Outlined" 
+            Hint="Address"            
+            ReserveSpaceForAssistiveLabels="False">
+                    <Entry Text="{Binding Addressvar, Mode=TwoWay}" FontSize="16" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Grid.Row="4" Grid.ColumnSpan="3"
+            ContainerType="Outlined" 
+            Hint="ICCID"             
+            ShowCharCount="true"
+            CharMaxLength="19"
+                                               
+            HelperText="Enter 19 characters"                                              
+            ReserveSpaceForAssistiveLabels="False">
+
+                    <Entry Text="{Binding ICCIDvar, Mode=TwoWay}" FontSize="16" />
+                </inputLayout:SfTextInputLayout>
+
+                <Label Grid.Row="5" Grid.Column="0"
+                       Padding="10"
+                 HorizontalTextAlignment="Start"
+                  HorizontalOptions="Start"
+                  LineHeight="{OnPlatform Android=1.5,
+                                            Default=-1}"
+                  Text="Device Purpose"
+                   FontSize="16"    
+                  TextColor="{DynamicResource Gray-900}"
+                  VerticalOptions="Center" />
+                <buttons:SfRadioGroup Grid.Row="5" Grid.Column="1" Orientation="Horizontal" BindingContext="Binding Devicetypevar">
+                    <buttons:SfRadioButton Text="Plants" FontSize="16"   IsChecked="True" />
+                    <buttons:SfRadioButton Text="Grass" FontSize="16"  />
+                    
+                </buttons:SfRadioGroup>
+                <buttons:SfButton
+                                     Grid.Row="6" Grid.ColumnSpan="3"
+                                     HeightRequest="50"
+                                     WidthRequest="200"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     CornerRadius="25"
+                                     HasShadow="True"
+                                     BorderWidth="1"
+                                     BorderColor="Gray"
+                                     ImageAlignment="End"
+                                     Command="{Binding ContTappedCommand}"
+                                     Text="Continue"/>
+            </Grid>
+      </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:smiqs.Converters"
+             xmlns:viewModel="clr-namespace:smiqs.ViewModels.Forms"
+             xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:control="clr-namespace:smiqs.Controls"
+             xmlns:local="clr-namespace:smiqs.Views.Forms"
+             xmlns:localImage="clr-namespace:smiqs;assembly=smiqs"
+            xmlns:svg="clr-namespace:smiqs.Controls"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="true"
+             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:template="clr-namespace:smiqs.Views.Templates"
+             x:Class="smiqs.Views.Forms.LoginWithSocialIconPage"  
+             xmlns:vm="clr-namespace:smiqs.ViewModels" xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             BackgroundColor="{DynamicResource Gray-200}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--vm:LoginVM x:Key="vm"/-->
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="customfontfamily" 
+                        iOS="UIFontIcons" 
+                        Android="UIFontIcons.ttf"/>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--  Binding context for login with social icon page  
+    <ContentPage.BindingContext>
+        <viewModel:LoginWithSocialIconViewModel />
+    </ContentPage.BindingContext>
+-->
+    <ContentPage.Content>
+
+        <Grid>
+
+            <gradient:SfGradientView Style="{StaticResource SfGradientStyle}" />
+            <ScrollView HorizontalOptions="Center">
+
+                <ScrollView.VerticalOptions>
+                    <OnIdiom
+                    x:TypeArguments="LayoutOptions"
+                    Default="CenterAndExpand"
+                    Phone="FillAndExpand" />
+                </ScrollView.VerticalOptions>
+
+                <StackLayout x:Name="loginStackLayout"
+                Margin="{core:OnPlatformOrientationThickness PhonePortrait='24,32',
+                                                             PhoneLandscape='150,32',
+                                                             TabletPortrait='200,50',
+                                                             TabletLandscape='350,50',
+                                                             Desktop='30'}"
+                Spacing="0"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="{OnPlatform Default='-1',
+                                          UWP='350'}">
+                    <svg:SVGImage 
+                             HorizontalOptions="Center"
+                            Grid.Row="0"
+                    x:Name="SmiqsLogo"
+                    Margin="{x:OnIdiom Phone='0,0,0,0',
+                                       Desktop='0',
+                                       Tablet='0'}"
+                    HeightRequest="{core:OnPlatformOrientationDoubleValue Default=200,
+                                                                          AndroidPhonePortrait=150,
+                                                                          AndroidPhoneLandscape=140,
+                                                                          iOSPhonePortrait=150,
+                                                                          iOSPhoneLandscape=140}"
+                    Source = "{Binding ImagePath}"
+                    VerticalOptions="Center"
+                    WidthRequest="{x:OnIdiom Phone=150,
+                                             Desktop=300,
+                                             Tablet=300}" />
+                    <Grid RowSpacing="0" VerticalOptions="CenterAndExpand">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+
+                        </Grid.RowDefinitions>
+
+                        <!--  Label to display the title of this page  -->
+                        <Label
+                            Grid.Row="0"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Login"
+                        TextColor="Black" />
+
+                        <!--  Label to display the description of this page  -->
+                        <Label
+                        Grid.Row="1"
+                        Margin="14,8"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Let's get to work"
+                        TextColor="Black" />
+
+                        <!--  Entry to get email ID from user  -->
+                        <local:LoginEmailEntry Grid.Row="2" Padding="0,24"  />
+
+                        <!--  Entry to get password from user  -->
+                        <border:SfBorder
+                        Grid.Row="3"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}" CornerRadius="4">
+                            <control:BorderlessEntry
+                            x:Name="PasswordEntry"
+                            IsPassword="True"
+                            Placeholder="Password"
+                            PlaceholderColor="Black"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Password, Mode=TwoWay}"
+                            TextColor="{DynamicResource Gray-900}" />
+                        </border:SfBorder>
+
+                        <!--  Forgot password link  -->
+                        <buttons:SfButton
+                        x:Name="ForgotPasswordLabel"
+                        Grid.Row="4" CornerRadius="4"
+                        Margin="0,16"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="12" 
+                        HorizontalOptions="End" 
+                        Style="{StaticResource SfFlatButtonStyle}"
+                        Text="FORGOT PASSWORD?"
+                        TextColor="Black"/>
+
+
+                        <buttons:SfButton
+                        Grid.Row="5"
+                        Margin="0,16"
+                        CornerRadius="4"
+                        Command="{Binding LoginCommand}"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="LOG IN" 
+                        CommandParameter="{Binding CanLogin}"
+                            />
+
+
+                        <Label
+                        Grid.Row="6"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Or create an account using social media"
+                        TextColor="Black" />
+
+                        <!--  Login button with social icons -->
+                        <Grid Grid.Row="7">
+                            <StackLayout Padding="20"
+                         VerticalOptions="CenterAndExpand" 
+                         x:Name="mainLayout"
+                         BindableLayout.ItemsSource="{Binding AuthenticationNetworks}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Text="{Binding Name, StringFormat='Login with {0}'}"
+                            
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            Command="{Binding Path=BindingContext.OnLoginCommand, Source={x:Reference mainLayout}}"
+                            CommandParameter="{Binding .}"     
+                            HeightRequest="45"
+                            TextColor="Black"
+                            BorderColor="Black"
+                            BorderWidth="1"
+                            BackgroundColor="White"
+                            WidthRequest="280"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="FillAndExpand"/>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                                <Label   FontFamily="{StaticResource FontIcons}"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{StaticResource Google}"
+                                   TextColor="DarkRed"
+                                   VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </Grid>
+
+                    </Grid>
+
+                    <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="1"
+                    VerticalOptions="End">
+
+                        <StackLayout.Padding>
+                            <OnIdiom
+                            x:DataType="Thickness"
+                            Default="0, 48, 0, 0"
+                            Phone="0" />
+                        </StackLayout.Padding>
+
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Don't have an account?"
+                        TextColor="Black"
+                        VerticalTextAlignment="Center" />
+
+                        <!--  Sign-up button  -->
+                        <buttons:SfButton
+                        Clicked="RegisterLabel_Tapped"
+                        CornerRadius="4"
+                        Style="{StaticResource SfFlatButtonStyle}"
+                        Text="Sign Up" />
+
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+    
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

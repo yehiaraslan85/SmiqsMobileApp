@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+      ios:Page.UseSafeArea="true"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:converter="clr-namespace:smiqs.Converters"
+             xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:template="clr-namespace:smiqs.Views.Templates"
+             xmlns:viewModel="clr-namespace:smiqs.ViewModels.Dashboard" 
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms" xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             BackgroundColor="{DynamicResource Gray-White}"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="smiqs.Views.Dashboard.AnalyticsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converter:BooleanToColorConverter x:Key="BooleanToColorConverter" />
+            <converter:BooleanToStringConverter x:Key="BoolToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--  Binding context for my wallet page  -->
+    <ContentPage.BindingContext>
+        <viewModel:AnalyticsPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <syncfusion:SfPullToRefresh x:Name="pullToRefresh"
+                                    IsRefreshing="{Binding IsRefreshing}" 
+                                    PullingThreshold="100"
+                                    RefreshContentHeight="30"
+                                    RefreshContentThreshold="30"
+                                    RefreshContentWidth="30"
+                                    RefreshCommand="{Binding RefreshCommand}">
+            <syncfusion:SfPullToRefresh.PullableContent>
+
+
+                <Grid RowSpacing="0" ColumnSpacing="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <template:AnalyticsChartTemplate Grid.ColumnSpan="4"  Grid.Row="0" />
+
+                 
+
+                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <border:SfBorder BorderWidth="1"
+                                         BorderColor="{StaticResource Gray-200}">
+                            <StackLayout Spacing="8" 
+                                         HorizontalOptions="Center" 
+                                         VerticalOptions="Center">
+                          
+                                <Label 
+                                   Margin="0" 
+                                   FontFamily="{StaticResource FontIcons}"
+                                   FontSize="24" 
+                                   TextColor="{StaticResource Gray-900}" 
+                                   Style="{StaticResource LabelStyle}"  
+                                   HorizontalOptions="Center"
+                                   Text="{StaticResource LitersIcon}"/>
+                                <Label  FontSize="12" 
+                                        TextColor="{StaticResource Gray-700}"
+                                        HorizontalOptions="Center" 
+                                        Text="Total Liters 200 Liters" 
+                                        Style="{StaticResource LabelStyle}"/>
+                                <BoxView  HeightRequest="4" 
+                                          WidthRequest="48" 
+                                          BackgroundColor="Red"/>
+                            </StackLayout>
+                        </border:SfBorder>
+
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+                        <border:SfBorder BorderWidth="1"
+                                         BorderColor="{StaticResource Gray-200}">
+                            <StackLayout Spacing="8" 
+                                         HorizontalOptions="Center" 
+                                         VerticalOptions="Center">
+                                <Label 
+                                   Margin="0" 
+                                   FontFamily="{StaticResource FontIcons}"
+                                   FontSize="24" 
+                                   TextColor="{StaticResource Gray-900}" 
+                                   Style="{StaticResource LabelStyle}"  
+                                   HorizontalOptions="Center"
+                                   Text="{StaticResource TempIcon}"/>
+                                <Label  FontSize="12" 
+                                        TextColor="{StaticResource Gray-700}"
+                                        HorizontalOptions="Center" 
+                                        Text="Average Temperature 36C" 
+                                        Style="{StaticResource LabelStyle}"/>
+                                <BoxView  HeightRequest="4" 
+                                          WidthRequest="48" 
+                                          BackgroundColor="Blue"/>
+                            </StackLayout>
+                        </border:SfBorder>
+
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
+                        <border:SfBorder BorderWidth="1"
+                                         BorderColor="{StaticResource Gray-200}">
+                            <StackLayout Spacing="8" 
+                                         HorizontalOptions="Center" 
+                                         VerticalOptions="Center">
+                                <Label 
+                                   Margin="0" 
+                                   FontFamily="{StaticResource FontIcons}"
+                                   FontSize="24" 
+                                   TextColor="{StaticResource Gray-900}" 
+                                   Style="{StaticResource LabelStyle}"  
+                                   HorizontalOptions="Center"
+                                   Text="{StaticResource HumidityIcon}"/>
+                                <Label  FontSize="12" 
+                                        TextColor="{StaticResource Gray-700}"
+                                        HorizontalOptions="Center" 
+                                        Text="Average Humidity 70%" 
+                                        Style="{StaticResource LabelStyle}"/>
+                                <BoxView  HeightRequest="4" 
+                                          WidthRequest="48" 
+                                          BackgroundColor="Blue"/>
+                            </StackLayout>
+                        </border:SfBorder>
+
+
+                    </Grid>
+                     <Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" >
+                        <border:SfBorder BorderWidth="1"
+                                         BorderColor="{StaticResource Gray-200}">
+                            <StackLayout Spacing="8" 
+                                         HorizontalOptions="Center" 
+                                         VerticalOptions="Center">
+                                <Label 
+                                   Margin="0" 
+                                   FontFamily="{StaticResource FontIcons}"
+                                   FontSize="24" 
+                                   TextColor="{StaticResource Gray-900}" 
+                                   Style="{StaticResource LabelStyle}"  
+                                   HorizontalOptions="Center"
+                                   Text="{StaticResource DurationIcon}"/>
+                                <Label  FontSize="12" 
+                                        TextColor="{StaticResource Gray-700}"
+                                        HorizontalOptions="Center" 
+                                        Text="Total Duration 7hrs" 
+                                        Style="{StaticResource LabelStyle}"/>
+                                <BoxView  HeightRequest="4" 
+                                          WidthRequest="48" 
+                                          BackgroundColor="Blue"/>
+                            </StackLayout>
+                        </border:SfBorder>
+
+
+                    </Grid>
+                </Grid>
+
+            </syncfusion:SfPullToRefresh.PullableContent>
+        </syncfusion:SfPullToRefresh>
+    </ContentPage.Content>
+</ContentPage>

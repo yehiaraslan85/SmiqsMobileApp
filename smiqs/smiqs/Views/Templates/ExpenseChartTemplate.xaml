@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+      xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+      xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms" 
+      xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+      ios:Page.UseSafeArea="true"
+      xmlns:radialMenu="clr-namespace:Syncfusion.SfRadialMenu.XForms;assembly=Syncfusion.SfRadialMenu.XForms"
+      x:Class="smiqs.Views.Templates.ExpenseChartTemplate">
+
+    <Grid.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="customfontfamily" 
+                        iOS="UIFontIcons" 
+                        Android="UIFontIcons.ttf"/>
+                <DataTemplate x:Key="toolTipTemplate1">
+                    <StackLayout BackgroundColor="#404041">
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" WinPhone="3,3,3,3" />
+                        </StackLayout.Padding>
+                        <Label Text="Irrigation" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="{OnPlatform Default='0', WPF='0,4,0,0'}" FontSize="12" Grid.Row="0" />
+                        <BoxView Grid.Row="1" Color="White" HeightRequest="0.75" Margin="{OnPlatform Default='0', WPF='4,0,4,0'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" BackgroundColor="#404041" Spacing="0" Padding="3" Margin="0">
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="#CCCCCC" FontAttributes="Bold" FontFamily="Helvetica" FontSize="12" Margin="{OnPlatform Default='0', WPF='3,0,0,0'}" />
+                            <Label Text="{Binding Value,StringFormat=' :  {0}°C'}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="{OnPlatform Default='0', WPF='0,0,3,0'}" FontSize="12" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </ResourceDictionary>
+    </Grid.Resources>
+
+    <Grid RowSpacing="0" ColumnSpacing="0" HeightRequest="409">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <gradient:SfGradientView Grid.RowSpan="4">
+            <gradient:SfGradientView.BackgroundBrush>
+                <gradient:SfLinearGradientBrush>
+                    <gradient:SfLinearGradientBrush.GradientStops>
+                        <gradient:SfGradientStop Color="White" Offset="0.0" />
+                        <gradient:SfGradientStop Color="White" Offset="1.0" />
+                    </gradient:SfLinearGradientBrush.GradientStops>
+                </gradient:SfLinearGradientBrush>
+            </gradient:SfGradientView.BackgroundBrush>
+        </gradient:SfGradientView>
+        <!--Label IsVisible="False" Text="Messages Received:"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Start" />
+        <StackLayout x:Name="messageDisplay"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start">
+        </StackLayout-->
+
+        <!-- Title -->
+        <!--Label Margin="0,28,0,12" 
+               Text="Garden Consumption" 
+               TextColor="Black"
+               FontSize="16"
+               FontFamily="{DynamicResource Montserrat-Medium}"
+               HorizontalOptions="Center"
+               LineHeight="{OnPlatform Android=1.5, Default=-1}" /-->
+
+        <!-- Total balance -->
+        <Label Grid.Row="1"
+               Margin="16,16,16,4" 
+               Text="{Binding TotalSpentText}"
+               TextColor="Black"
+               FontSize="12"
+               FontFamily="{DynamicResource Montserrat-Medium}"
+               LineHeight="{OnPlatform Android=1.5, Default=-1}" />
+
+        <Label Grid.Row="2" 
+               Margin="16,0,16,32"
+               TextColor="Black"
+               FontSize="24"
+               FontFamily="{DynamicResource Montserrat-Bold}"
+               LineHeight="{OnPlatform Android=1.5, Default=-1}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="AED " />
+                    <Span Text="{Binding TotalBalance}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <StackLayout Grid.Row="1" 
+                     Grid.RowSpan="2"
+                     Margin="0,16,16,51"
+                     Padding="8,5"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     WidthRequest="{OnPlatform Android=90, Default=94}"
+                     HeightRequest="32">
+            <combobox:SfComboBox SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" 
+                                 SelectedItem="{Binding DataSource[0], Mode=OneTime}" 
+                                 ShowBorder="False" MultiSelectMode="None" IsEditableMode="False"
+                                 TextColor="Black" HorizontalOptions="Start" TextSize="14"
+                                 VerticalOptions="Start" FontFamily="{DynamicResource Montserrat-Medium}"
+                                 DisplayMemberPath="Duration" DataSource="{Binding DataSource}">
+                <combobox:SfComboBox.DropDownButtonSettings>
+                    <combobox:DropDownButtonSettings>
+                        <combobox:DropDownButtonSettings.View>
+                            <Label FontFamily="{StaticResource FontIcons}"
+                                   FontSize="20"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{StaticResource DropDownButtonIcon}"
+                                   TextColor="Black"
+                                   VerticalTextAlignment="Center" />
+                        </combobox:DropDownButtonSettings.View>
+                    </combobox:DropDownButtonSettings>
+                </combobox:SfComboBox.DropDownButtonSettings>
+            </combobox:SfComboBox>
+        </StackLayout>
+
+        <!--StackLayout Margin="0,55,0,0"
+                 x:Name="stackLayout">
+            <Label Text="Click the button to create a local notification."
+               TextColor="Red"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+            <Button Text="Create Notification"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Clicked="OnScheduleClick"/-->
+
+
+        <!-- Income and expense chart -->
+       
+        <gauge:SfCircularGauge  IsVisible="{Binding Gauge_IsVisible}" Grid.Row="3"  >
+            <gauge:SfCircularGauge.Annotations>
+
+                <gauge:GaugeAnnotation Angle="90" Offset="0.3">
+                    <gauge:GaugeAnnotation.View>
+                        <Label x:Name="LabelAnnotation1" Text="{Binding Feedback}" FontSize="12" HeightRequest="30" WidthRequest="75" TextColor="#062a48"
+                                            HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+
+                <!--gauge:GaugeAnnotation Angle="90" Offset="0.3">
+                    <gauge:GaugeAnnotation.View>
+                        <StackLayout>
+                            <StackLayout>
+                               
+                                <Label 
+                                   FontSize="12"
+                                   HorizontalTextAlignment="Center"
+                                   Text="Irrigating..."
+                                   TextColor="{DynamicResource White}"
+                                   VerticalTextAlignment="Center" />
+
+                            </StackLayout>
+
+
+                        </StackLayout>
+                    </gauge:GaugeAnnotation.View>
+                </-->
+
+
+
+                <gauge:GaugeAnnotation Angle="0" Offset="0.5">
+                    <gauge:GaugeAnnotation.View>
+                        <StackLayout>
+                            <StackLayout>
+                                <Label FontFamily="{StaticResource FontIcons}"
+                                   FontSize="30"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{StaticResource CloudIcon}"
+                                   TextColor="#062a48"
+                                   VerticalTextAlignment="Center" />
+                                <Label 
+                                   FontSize="12"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding RealStatus}"
+                                   TextColor="#062a48"
+                                   VerticalTextAlignment="Center" />
+
+                            </StackLayout>
+
+
+                        </StackLayout>
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+                
+                <gauge:GaugeAnnotation Angle="180" Offset="0.5">
+                    <gauge:GaugeAnnotation.View>
+                        <StackLayout>
+                            <Label FontFamily="{StaticResource FontIcons}"
+                                   FontSize="30"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{StaticResource TempIcon}"
+                                   TextColor="#062a48"
+                                   VerticalTextAlignment="Center" />
+                            <Label 
+                                   FontSize="12"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding RealTemperature}"
+                                   TextColor="#062a48"
+                                   VerticalTextAlignment="Center" />
+
+                        </StackLayout>
+
+
+                    </gauge:GaugeAnnotation.View>
+                </gauge:GaugeAnnotation>
+               
+                
+            </gauge:SfCircularGauge.Annotations>
+
+            <gauge:SfCircularGauge.Scales>
+
+                <gauge:Scale   RimColor="LightGray" RimThickness="10" RadiusFactor="1" ShowTicks="True"
+                               StartValue="40" EndValue="80" Interval="5" LabelOffset="0.80" LabelColor="Black"
+                              LabelFontSize ="12" >
+
+                    <gauge:Scale.Pointers>
+
+                        <gauge:RangePointer Color="Transparent" Thickness="10" Offset="0.925" EnableAnimation="True"
+                                            AnimationDuration="2" Value="{Binding RealTimeValue}" />
+
+                        <gauge:NeedlePointer Thickness="5" LengthFactor="0.55" Color="#062a48"
+                                             KnobColor="{DynamicResource Bright-Cyan}" TailColor="#062a48" TailLengthFactor="0.2"
+                                             Type="Triangle"  KnobRadius="3" Value="{Binding RealTimeValue}"
+                                             AnimationDuration="2" TailStrokeWidth="1" TailStrokeColor="#062a48"
+                                             KnobStrokeColor="#062a48" KnobStrokeWidth="8"/>
+
+                    </gauge:Scale.Pointers>
+                    <gauge:Scale.Ranges>
+                        <gauge:Range StartValue="{Binding RealTimeVWCMinValue}" EndValue="{Binding RealTimeVWCMaxValue}" Color="Green" InnerStartOffset="0.925"
+                                                     OuterStartOffset="1" InnerEndOffset="0.925" OuterEndOffset="1"/>
+                    </gauge:Scale.Ranges>
+                </gauge:Scale>
+
+            </gauge:SfCircularGauge.Scales>
+           
+
+        </gauge:SfCircularGauge>
+
+        <chart:SfChart IsVisible="{Binding Chart_IsVisible}" Grid.Row="3" Margin="10,0,10,26" HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource Transparent}">
+
+            <chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis ShowMajorGridLines="False" Interval="1">
+                    <chart:CategoryAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle Margin="0,8,0,0" TextColor="Black" FontSize="12" 
+                                                   FontFamily="{DynamicResource Montserrat-Medium}" />
+                    </chart:CategoryAxis.LabelStyle>
+                    <chart:CategoryAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="0" />
+                    </chart:CategoryAxis.AxisLineStyle>
+                    <chart:CategoryAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="0" StrokeWidth="0" />
+                    </chart:CategoryAxis.MajorTickStyle>
+                </chart:CategoryAxis>
+            </chart:SfChart.PrimaryAxis>
+
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis Minimum="0" Maximum="100" Interval="10" ShowMinorGridLines="False" IsVisible="False" 
+                                     ShowMajorGridLines="False">
+                    <chart:NumericalAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="0" />
+                    </chart:NumericalAxis.AxisLineStyle>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+
+            <chart:SfChart.Legend>
+                <chart:ChartLegend ToggleSeriesVisibility="True" Margin="0,29,0,0" DockPosition="Bottom" IconWidth="8" IconHeight="8" 
+                                   Orientation="Horizontal">
+                    <chart:ChartLegend.LabelStyle>
+                        <chart:ChartLegendLabelStyle Margin="10,0,24,0" TextColor="#062a48" 
+                                                     FontSize="12" FontFamily="{DynamicResource Montserrat-Medium}" />
+                    </chart:ChartLegend.LabelStyle>
+                </chart:ChartLegend>
+            </chart:SfChart.Legend>
+            
+            <chart:SfChart.Series>
+                <chart:StackingColumn100Series Width="0.1" CornerRadius="4" ItemsSource="{Binding ChartData}"
+                                               XBindingPath="XValue" YBindingPath="Expense" Label="Irrigations" Color="{DynamicResource Bright-Cyan}" 
+                                               LegendIcon="Circle" EnableTooltip="True" EnableAnimation="True" />
+
+                <chart:StackingColumn100Series EnableDataPointSelection="True" Width="0.1" CornerRadius="4" ItemsSource="{Binding ChartData}" 
+                                               Label="AED" XBindingPath="XValue" YBindingPath="Income" 
+                                               LegendIcon="Circle" EnableTooltip="True" EnableAnimation="True"
+                                               Color="#062a48">
+                    <chart:StackingColumn100Series.DataMarker>
+                        <chart:ChartDataMarker/>
+                    </chart:StackingColumn100Series.DataMarker>
+                </chart:StackingColumn100Series>
+                <chart:StackingColumn100Series Width="0.1" CornerRadius="4" ItemsSource="{Binding ChartData}" XBindingPath="XValue" 
+                                               YBindingPath="GapValue" Color="Transparent" IsVisibleOnLegend="False" />
+
+
+
+            </chart:SfChart.Series>
+
+        </chart:SfChart>
+
+        <chart:SfChart IsVisible="{Binding Spline_IsVisible}" Grid.Row="3" Margin="10,0,10,26" HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource Transparent}">
+            <chart:SfChart.Margin>
+                <OnPlatform x:TypeArguments="Thickness" WinPhone="0,0,15,0" />
+            </chart:SfChart.Margin>
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="VWC Daily Report"  />
+            </chart:SfChart.Title>
+            <chart:SfChart.ChartBehaviors>
+                <chart:ChartTooltipBehavior BackgroundColor="#404041" />
+                <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+            </chart:SfChart.ChartBehaviors>
+            <chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis LabelPlacement="BetweenTicks" ShowMajorGridLines="false">
+                </chart:CategoryAxis>
+            </chart:SfChart.PrimaryAxis>
+
+
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis Maximum="100" Minimum="0" Interval="10">
+                    <chart:NumericalAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="0">
+                        </chart:ChartLineStyle>
+                    </chart:NumericalAxis.AxisLineStyle>
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="0" />
+                    </chart:NumericalAxis.MajorTickStyle>
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle x:Name="secondaryAxisLabelStyle"/>
+                    </chart:NumericalAxis.LabelStyle>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+            <chart:SfChart.Legend>
+                <chart:ChartLegend DockPosition="Bottom" ToggleSeriesVisibility="True" IconWidth="14" IconHeight="14" />
+            </chart:SfChart.Legend>
+            <chart:SfChart.ColorModel>
+                <chart:ChartColorModel Palette="Natural" />
+            </chart:SfChart.ColorModel>
+            <chart:SplineSeries x:Name="splineSeries1" SplineType="Cardinal" ItemsSource="{Binding Data}" XBindingPath="Month" YBindingPath="Target" StrokeWidth="2" Label="Max VWC" LegendIcon="SeriesType" EnableTooltip="true">
+
+                <chart:SplineSeries.DataMarker>
+                    <chart:ChartDataMarker ShowLabel="False" ShowMarker="False" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="Transparent">
+                        <chart:ChartDataMarker.MarkerWidth>
+                            <OnPlatform x:TypeArguments="x:Double" Android="10" iOS="10" WinPhone="15" />
+                        </chart:ChartDataMarker.MarkerWidth>
+                        <chart:ChartDataMarker.MarkerHeight>
+                            <OnPlatform x:TypeArguments="x:Double" Android="10" iOS="10" WinPhone="15" />
+                        </chart:ChartDataMarker.MarkerHeight>
+                    </chart:ChartDataMarker>
+                </chart:SplineSeries.DataMarker>
+                <chart:SplineSeries.StrokeDashArray>
+                    
+                </chart:SplineSeries.StrokeDashArray>
+            </chart:SplineSeries>
+            <chart:SplineSeries x:Name="splineSeries2" SplineType="Cardinal" ItemsSource="{Binding Data}" XBindingPath="Month" YBindingPath="Target" StrokeWidth="2" Label="Irrigations" LegendIcon="SeriesType" EnableTooltip="true" TooltipTemplate="{StaticResource toolTipTemplate1}">
+
+                <chart:SplineSeries.DataMarker>
+                    <chart:ChartDataMarker ShowLabel="True" ShowMarker="True" MarkerBorderColor="DarkRed" MarkerBorderWidth="2" MarkerColor="Transparent">
+                        <chart:ChartDataMarker.MarkerWidth>
+                            <OnPlatform x:TypeArguments="x:Double" Android="10" iOS="10" WinPhone="15" />
+                        </chart:ChartDataMarker.MarkerWidth>
+                        <chart:ChartDataMarker.MarkerHeight>
+                            <OnPlatform x:TypeArguments="x:Double" Android="10" iOS="10" WinPhone="15" />
+                        </chart:ChartDataMarker.MarkerHeight>
+                    </chart:ChartDataMarker>
+                </chart:SplineSeries.DataMarker>
+                <chart:SplineSeries.StrokeDashArray>
+
+                </chart:SplineSeries.StrokeDashArray>
+            </chart:SplineSeries>
+        </chart:SfChart>
+    </Grid>
+</Grid>

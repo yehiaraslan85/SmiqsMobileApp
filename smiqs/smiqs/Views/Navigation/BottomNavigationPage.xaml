@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:smiqs.Views.Navigation"
+             xmlns:local1="clr-namespace:smiqs.Views.Settings"
+             x:Class="smiqs.Views.Navigation.BottomNavigationPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+      ios:Page.UseSafeArea="true"
+             xmlns:views="clr-namespace:smiqs.Views" 
+             xmlns:views1="clr-namespace:smiqs.Views.Dashboard"
+             xmlns:views2="clr-namespace:smiqs.Views.Forms"
+             BarBackgroundColor="White"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+    <views2:FillInDetailsPage Title="Home">
+        <views2:FillInDetailsPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource HomePageIcon}"
+                                 Size="20"/>
+        </views2:FillInDetailsPage.IconImageSource>
+    </views2:FillInDetailsPage>
+
+    <views1:AnalyticsPage Title="Analytics">
+        <views1:AnalyticsPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource AnaIcon}"
+                                 Size="20"/>
+        </views1:AnalyticsPage.IconImageSource>
+    </views1:AnalyticsPage>
+    
+    <local:ControlPage Title="Control">
+        <local:ControlPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource ControlIcon}"
+                                 Size="20"/>
+        </local:ControlPage.IconImageSource>
+    </local:ControlPage>
+    <local1:SettingPage Title="Settings">
+        <local1:SettingPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource SettingsIcon}"
+                                 Size="20"/>
+        </local1:SettingPage.IconImageSource>
+    </local1:SettingPage>
+    
+</TabbedPage>

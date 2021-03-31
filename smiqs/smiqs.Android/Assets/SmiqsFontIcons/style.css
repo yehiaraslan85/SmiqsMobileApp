@@ -1,0 +1,64 @@
+@font-face {
+font-family: 'SmiqsFontIcons';
+src:
+url('Fonts/SmiqsFontIcons.ttf') format('truetype'),
+url('Fonts/SmiqsFontIcons.woff') format('woff'),
+url('Fonts/SmiqsFontIcons.eot') format('eot'),
+url('Fonts/SmiqsFontIcons.svg?#SmiqsFontIcons') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+[class^="sf-icon-"], [class*=" sf-icon-"] {
+ font-family: 'SmiqsFontIcons' !important;
+speak: none;
+font-size: 55px;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.sf-icon-water-tap:before { content: "\e800"; }
+.sf-icon-gauge---07:before { content: "\e801"; }
+.sf-icon-house-07:before { content: "\e802"; }
+.sf-icon-water-tap--wf:before { content: "\e803"; }
+.sf-icon-drop-01:before { content: "\e804"; }
+.sf-icon-calendar--01-:before { content: "\e805"; }
+.sf-icon-connectivity-error:before { content: "\e806"; }
+.sf-icon-wifi-wf:before { content: "\e807"; }
+.sf-icon-command-refresh-01:before { content: "\e808"; }
+.sf-icon-uae-dirham-wf:before { content: "\e809"; }
+.sf-icon-profit-01-wf:before { content: "\e80a"; }
+.sf-icon-eye-roll:before { content: "\e80b"; }
+.sf-icon-happy-01:before { content: "\e80c"; }
+.sf-icon-sad:before { content: "\e80d"; }
+.sf-icon-smile:before { content: "\e80e"; }
+.sf-icon-camera-wf:before { content: "\e80f"; }
+.sf-icon-alarm-clock-wf:before { content: "\e810"; }
+.sf-icon-user-profile-1-wf:before { content: "\e811"; }
+.sf-icon-audip-wave-01:before { content: "\e812"; }
+.sf-icon-chart---04:before { content: "\e815"; }
+.sf-icon-linear-gauge:before { content: "\e816"; }
+.sf-icon-settings:before { content: "\e817"; }
+.sf-icon-arrowhead-down:before { content: "\e718"; }
+.sf-icon-arrowhead-down-wf:before { content: "\e719"; }
+.sf-icon-grass:before { content: "\e71a"; }
+.sf-icon-tree-01:before { content: "\e71b"; }
+.sf-icon-tulip:before { content: "\e71c"; }
+.sf-icon-flower---02:before { content: "\e71d"; }
+.sf-icon-temperature-warning-wf:before { content: "\e71f"; }
+.sf-icon-humidity:before { content: "\e720"; }
+.sf-icon-wind-03-wf:before { content: "\e721"; }
+.sf-icon-water-drop:before { content: "\e722"; }
+.sf-icon-rain---01:before { content: "\e723"; }
+.sf-icon-forecast-weather--wf:before { content: "\e724"; }
+.sf-icon-cloud:before { content: "\e725"; }
+.sf-icon-cloud-thunder:before { content: "\e726"; }
+.sf-icon-rain-wf:before { content: "\e727"; }
+.sf-icon-weather-02:before { content: "\e728"; }
+.sf-icon-wifi-01:before { content: "\e729"; }
+.sf-icon-connectivity-error-wf:before { content: "\e72a"; }

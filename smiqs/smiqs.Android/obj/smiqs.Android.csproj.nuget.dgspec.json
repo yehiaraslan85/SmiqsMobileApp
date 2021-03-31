@@ -1,0 +1,436 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs.Android\\smiqs.Android.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs.Android\\smiqs.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs.Android\\smiqs.Android.csproj",
+        "projectName": "smiqs.Android",
+        "projectPath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs.Android\\smiqs.Android.csproj",
+        "packagesPath": "C:\\Users\\AVEVA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs.Android\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AVEVA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid10.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid10.0": {
+            "projectReferences": {
+              "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj": {
+                "projectPath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid10.0": {
+          "dependencies": {
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.Azure.Mobile.Client": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Plugin.CurrentActivity": {
+              "target": "Package",
+              "version": "[2.1.0.4, )"
+            },
+            "Plugin.Permissions": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[6.0.38, )"
+            },
+            "SkiaSharp.Extended": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "SkiaSharp.Svg": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "SkiaSharp.Views.Forms": {
+              "target": "Package",
+              "version": "[2.80.2, )"
+            },
+            "Syncfusion.Xamarin.Buttons": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.Cards": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.Core": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.DataSource": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfBackdrop": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfBadgeView": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfBusyIndicator": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfCalendar": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfCarousel": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfChart": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfComboBox": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfGauge": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfListView": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfNavigationDrawer": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfPopupLayout": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfPullToRefresh": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfPullToRefresh.Android": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfRadialMenu": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfRating": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfRotator": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfTabView": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Xamarin.Android.Support.Design": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.AndroidX.Leanback": {
+              "target": "Package",
+              "version": "[1.0.0.7, )"
+            },
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Azure.NotificationHubs.Android": {
+              "target": "Package",
+              "version": "[1.1.4.1, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            },
+            "Xamarin.Firebase.Auth": {
+              "target": "Package",
+              "version": "[120.0.2, )"
+            },
+            "Xamarin.Firebase.Common": {
+              "target": "Package",
+              "version": "[119.5.0, )"
+            },
+            "Xamarin.Firebase.Firestore": {
+              "target": "Package",
+              "version": "[122.1.0, )"
+            },
+            "Xamarin.Firebase.Iid": {
+              "target": "Package",
+              "version": "[121.0.1, )"
+            },
+            "Xamarin.Firebase.Messaging": {
+              "target": "Package",
+              "version": "[121.0.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2012, )"
+            },
+            "Xamarin.Google.Android.DataTransport.TransportRuntime": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Xamarin.Google.Dagger": {
+              "target": "Package",
+              "version": "[2.27.0, )"
+            },
+            "Xamarin.Google.Guava": {
+              "include": "None",
+              "target": "Package",
+              "version": "[28.2.0, )"
+            },
+            "Xamarin.GooglePlayServices.Base": {
+              "target": "Package",
+              "version": "[117.6.0, )"
+            }
+          }
+        }
+      }
+    },
+    "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj",
+        "projectName": "smiqs",
+        "projectPath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj",
+        "packagesPath": "C:\\Users\\AVEVA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AVEVA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.481, )"
+            },
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.Azure.Mobile.Client": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Plugin.FacebookClient": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "Plugin.GoogleClient": {
+              "target": "Package",
+              "version": "[2.1.12, )"
+            },
+            "Plugin.Permissions": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "SkiaSharp.Extended": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "SkiaSharp.Svg": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "SkiaSharp.Views.Forms": {
+              "target": "Package",
+              "version": "[2.80.2, )"
+            },
+            "Syncfusion.Xamarin.Buttons": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.Cards": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.Core": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.DataSource": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfBackdrop": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfBadgeView": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfBusyIndicator": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfCalendar": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfCarousel": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfChart": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfComboBox": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfGauge": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfListView": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfNavigationDrawer": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfPopupLayout": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfPullToRefresh": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfRadialMenu": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfRating": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfRotator": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Syncfusion.Xamarin.SfTabView": {
+              "target": "Package",
+              "version": "[18.4.0.48, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2012, )"
+            },
+            "refit": {
+              "target": "Package",
+              "version": "[6.0.38, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.7.335, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout        
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:converter="clr-namespace:smiqs.Converters"
+    x:Class="smiqs.Views.Templates.ArticleActivityTemplate"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Name="articleActivityTemplate">
+
+    <StackLayout.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converter:BooleanToStringConverter x:Key="boolToStringConverter" />
+            <converter:BooleanToColorConverter x:Key="boolToColorConverter" />
+        </ResourceDictionary>
+    </StackLayout.Resources>
+
+    <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand"  Margin="0,8,16,8">
+        <!--buttons:SfSwitch Grid.Row="2" Margin="10"
+                      x:Name="sfSwitchA" StateChanging="State_StateChangingA"
+                      HorizontalOptions="EndAndExpand"
+                      AllowIndeterminateState="False"
+                      HeightRequest="30"
+                      VisualType="Cupertino">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="On">
+                        <VisualState.Setters>
+                            <Setter Property="SwitchSettings">
+                                <Setter.Value>
+                                    <buttons:CupertinoSwitchSettings
+                                    x:TypeArguments="buttons:OnState"
+                                    ThumbBorderColor="{DynamicResource Gray-200}"
+                                    ThumbColor="{DynamicResource Gray-White}"
+                                    TrackBorderColor="{DynamicResource Gray-200}"
+                                    TrackColor="{DynamicResource PrimaryColor}" />
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Off">
+                        <VisualState.Setters>
+                            <Setter Property="SwitchSettings">
+                                <Setter.Value>
+                                    <buttons:CupertinoSwitchSettings
+                                    x:TypeArguments="buttons:OffState"
+                                    ThumbBorderColor="{DynamicResource Gray-200}"
+                                    ThumbColor="{DynamicResource Gray-White}"
+                                    TrackBorderColor="{DynamicResource Gray-200}"
+                                    TrackColor="{DynamicResource Gray-White}" />
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </buttons:SfSwitch-->
+
+        <!--  Bookmark Button  -->
+        <buttons:SfButton
+           HorizontalOptions="EndAndExpand"
+            Command="{Binding ParentBindingContext.AddFavouriteCommand, Source={x:Reference articleActivityTemplate}}"
+            CommandParameter="{Binding}" 
+            CornerRadius="4" Style="{StaticResource NavigationBarButtonStyle}" WidthRequest="35" 
+            Text="{StaticResource WaterTapIcon}"
+            TextColor="#083b66" />
+
+        <!--  Bookmarked Count  -->
+        <Label  
+            HorizontalOptions="EndAndExpand" 
+            Text="{Binding FavouritesCount}" 
+            TextColor="#083b66" 
+            Margin="0,0,10,0" 
+            Style="{StaticResource ActivityCount}" />
+
+        <!-- Favourite Icon  -->
+            <!--buttons:SfButton
+            Command="{Binding ParentBindingContext.AddFavouriteCommand, Source={x:Reference articleActivityTemplate}}"
+            CommandParameter="{Binding}" CornerRadius="4" Style="{StaticResource NavigationBarButtonStyle}" WidthRequest="35" 
+            Text="{StaticResource WaterTapIcon}"
+            TextColor="#083b66" /-->
+
+        <!--  Favourites Count  -->
+        <!--Label Text="{Binding FavouritesCount}" Margin="0,0,10,0" TextColor="#083b66" Style="{StaticResource ActivityCount}" /!-->
+
+        <!--  Share Icon  -->
+        
+        <!--  Shared Count  -->
+        <!--Label Text="{Binding BookmarkedCount}" TextColor="#083b66" Style="{StaticResource ActivityCount}"/-->
+    </StackLayout>
+    
+</StackLayout>

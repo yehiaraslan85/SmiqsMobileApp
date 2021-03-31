@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:views="clr-namespace:smiqs.Views" 
+             xmlns:views1="clr-namespace:smiqs.Views.Dashboard"
+             xmlns:views2="clr-namespace:smiqs.Views.Forms"
+
+             xmlns:converter="clr-namespace:smiqs.Converters"
+           
+             x:Class="smiqs.Views.SubscriptionsPage"
+             Title="Smiqs Mobile Application">
+    
+    
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="My Account"
+                     Clicked="ToolbarItem_Clicked"/>
+    </TabbedPage.ToolbarItems>
+   
+    
+    <NavigationPage Title="Analytics" IconImageSource="schedule.png">
+        <x:Arguments>
+            <views2:FillInDetailsPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Control" IconImageSource="schedule.png">
+        <x:Arguments>
+            <views:Control_Page />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

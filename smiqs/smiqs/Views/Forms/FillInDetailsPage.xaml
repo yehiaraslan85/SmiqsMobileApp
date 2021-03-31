@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:smiqs.Converters"
+             xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:control="clr-namespace:smiqs.Controls"
+             xmlns:local="clr-namespace:smiqs.Views.Forms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"       
+
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+      ios:Page.UseSafeArea="true"
+             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="smiqs.Views.Forms.FillInDetailsPage"
+             BackgroundColor="{DynamicResource Gray-White}" 
+             NavigationPage.HasBackButton="False"
+             NavigationPage.BackButtonTitle="AddNewDevice"            
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--vm:LoginVM x:Key="vm"/-->
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+    
+            
+
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="#062a48" 
+                             Orientation="Horizontal">
+            <Button x:Name="hamburgerButton" 
+                            HeightRequest="50" 
+                            WidthRequest="50" 
+                            HorizontalOptions="Start" 
+                            FontSize="20" 
+                            BackgroundColor="Transparent"
+                            ImageSource="https://i.ibb.co/ZNnw0kX/hamburger-menu-1.png"
+                            Clicked="BackButton_Clicked"/>
+            <Label x:Name="headerLabel" 
+                           HeightRequest="50" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center" 
+                           Text="Add New Device" 
+                           FontSize="16" 
+                           TextColor="White" 
+                           BackgroundColor="#062a48"/>
+            <buttons:SfButton x:Name="AddDeviceButton" 
+                            HeightRequest="50" 
+                            WidthRequest="50" 
+                            HorizontalOptions="EndAndExpand" 
+                            BackgroundColor="Transparent"
+                            ImageSource="https://i.ibb.co/Qd5MqFn/Add-Device.png"
+                            Text="{StaticResource Camera}" 
+                            TextColor="White" 
+                            FontSize="24"
+                            Style="{StaticResource NavigationBarButtonStyle}" 
+                            CornerRadius="4"
+                            Margin="0" 
+                            Padding="0"                             
+                            Clicked="TakePhotoButton_Clicked"
+                            />
+          
+        </StackLayout>
+        <StackLayout Grid.Row="1" x:Name="loginStackLayout"
+                Margin="{core:OnPlatformOrientationThickness PhonePortrait='24,32',
+                                                             PhoneLandscape='150,32',
+                                                             TabletPortrait='200,50',
+                                                             TabletLandscape='350,50',
+                                                             Desktop='30'}"
+                Spacing="0"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="{OnPlatform Default='-1',
+                                          UWP='350'}">
+
+            <ActivityIndicator x:Name="loadingIndicator" Color="#062a48"/>
+            <StackLayout Grid.Row="1" Padding="0,12" x:Name="stackICCIDEntry">
+                <border:SfBorder x:Name="GardenNameHolder"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference GNameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}" CornerRadius="4">
+                    <control:BorderlessEntry
+                            x:Name="GNameEntry"
+                            IsPassword="False"
+                            Placeholder="Zone Name"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding GName, Mode=TwoWay}"
+                            TextColor="{DynamicResource Gray-900}" />
+                </border:SfBorder>
+                <border:SfBorder x:Name="GardenTypeHolder"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference GTypeEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}" CornerRadius="4">
+                    <control:BorderlessEntry
+                            x:Name="GTypeEntry"
+                            IsPassword="False"
+                            Placeholder="Sensor Input Mode"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding GType, Mode=TwoWay}"
+                            TextColor="{DynamicResource Gray-900}" />
+                </border:SfBorder>
+              
+
+            
+                <border:SfBorder x:Name="ICCIDHolder"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference ICCIDEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}" CornerRadius="4">
+                    <control:BorderlessEntry
+                            x:Name="ICCIDEntry"
+                            IsPassword="False"
+                            Placeholder="ICCID"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding ICCID, Mode=TwoWay}"
+                            TextColor="{DynamicResource Gray-900}" />
+                </border:SfBorder>
+              <Image x:Name="selectedImage"/>
+            </StackLayout>
+            <!--  Label to display the title of this page  -->
+
+            
+            <StackLayout
+                    HorizontalOptions="Center"                       
+                    Orientation="Horizontal"
+                    Spacing="1"
+                    VerticalOptions="End">
+                <!--  Register button  -->
+                <!--buttons:SfButton
+                        Grid.Row="7"
+                            x:Name="ConfirmPasswordBtn"
+                            WidthRequest="300"
+                        Margin="0,16"
+                        CornerRadius="4"
+                        
+                            
+                            
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="REGISTER USER" 
+                        
+                            /-->
+                <buttons:SfButton
+                        x:Name="ConfirmICCIDBtn"
+                        Grid.Row="4"
+                            WidthRequest="300"
+                        Margin="0,16"
+                        CornerRadius="4"
+                        Clicked="ConfirmICCID_ClickedAsync"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="REGISTER ICCID" 
+                        
+                            />
+            </StackLayout>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
