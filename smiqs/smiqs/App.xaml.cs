@@ -42,6 +42,7 @@ namespace smiqs
         public static string BaseImageUrl { get; } = "https://cdn.syncfusion.com/essential-ui-kit-for-xamarin.forms/common/uikitimages/";
         public App(IOAuth2Service oAuth2Service)
         {
+            //comment
             try { 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDE3ODY2QDMxMzgyZTM0MmUzMFovZmJpMktRaW82aXRnYTRIZ1dZMVZ1SUt6L3ZSTFBpTkFoUGliWUxuQXM9");
 
