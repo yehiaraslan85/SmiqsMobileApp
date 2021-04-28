@@ -80,7 +80,26 @@ namespace smiqs.Helper
             }
             return null;
         }
+        public async System.Threading.Tasks.Task<ObservableCollection<tblSmiqsTelemetry>> GetTelemetriesSmiqs(string iccid,string sensor)
+        {
+            WebAPIUrl = "https://smiqsdbcrud.azurewebsites.net/api/tblSmiqsTelemetries/" + iccid+"/"+ sensor; // Set your REST API url here
+            var uri = new Uri(WebAPIUrl);
+            try
+            {
+                var response = await client.GetAsync(uri);
 
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    SmiqsItems = JsonConvert.DeserializeObject<ObservableCollection<tblSmiqsTelemetry>>(content);
+                    return SmiqsItems;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
         #endregion
     }
 }

@@ -16,10 +16,12 @@ using System.Linq;
 using System.Net.Http;
 using static smiqs.Views.MainMenu;
 using Newtonsoft.Json;
-using static smiqs.Models.Telemetry;
 using System.Net;
 using smiqs.Helper;
 using System.Collections.ObjectModel;
+using Azure.Storage.Files.Shares;
+using Azure;
+using Azure.Storage.Blobs;
 
 namespace smiqs.Views.Forms
 {
@@ -130,6 +132,38 @@ namespace smiqs.Views.Forms
                 return true;
             }
         }
+        public async Task<string> uploadanImageAsync(byte[] ms)
+        {
+            string connectionString = "DefaultEndpointsProtocol=https;AccountName=functionappsmartiqsstora;AccountKey=mtzL9CjuMPB5nglH57hoUAJ7dhgI42eAGFmdGldLTsXXs3DuqBQ/GrLGfSzqmWjCfGi/7x3YByze7itymNafiQ==;EndpointSuffix=core.windows.net";
+
+            // Create a BlobServiceClient object which will be used to create a container client
+            BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+
+            //Create a unique name for the container
+            string containerName = "smiqsimages";
+
+            // Create the container and return a container client object
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+
+            // Create a local file in the ./data/ directory for uploading and downloading
+            string fileName = ICCIDEntry.Text + GNameEntry.Text + GTypeEntry.Text + ".jpg";
+            string localFilePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), ICCIDEntry.Text + GNameEntry.Text + GTypeEntry.Text + ".jpg");
+
+            // Write text to the file
+            File.WriteAllBytes(localFilePath, ms);
+
+            // Get a reference to a blob
+            BlobClient blobClient = containerClient.GetBlobClient(fileName);
+
+            Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
+
+            // Open the file and upload its data
+            FileStream uploadFileStream = File.OpenRead(localFilePath);
+            await blobClient.UploadAsync(uploadFileStream, true);
+            
+            uploadFileStream.Close();
+            return "https://functionappsmartiqsstora.blob.core.windows.net/smiqsimages/"+ fileName;
+        }
         async Task<bool> AddDeviceToDB(Models.Device data)
         {
             var httpClient = new HttpClient();
@@ -197,7 +231,8 @@ namespace smiqs.Views.Forms
                     dev.deviceICCID = ICCIDEntry.Text;
                     dev.deviceName = GNameEntry.Text;
                     dev.deviceType = GTypeEntry.Text;
-                    dev.deviceImageBytes = selectedImageBytes;
+                    //dev.deviceImageBytes = selectedImageBytes;           
+                    dev.deviceImagePath = await uploadanImageAsync(selectedImageBytes);
                     dev.deviceMode = "Smart";
                     dev.deviceInDate = DateTime.Now.ToString();
                     dev.OwnerEmail = userEmail;

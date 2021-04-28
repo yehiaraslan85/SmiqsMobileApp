@@ -61,6 +61,7 @@ namespace smiqs.ViewModels.Dashboard
         private ObservableCollection<TransactionChartData> chartdata;
         private ObservableCollection<TelemetryEventsModel> datasource { get; set; }
         private ObservableCollection<splinedata> data;
+        private ObservableCollection<splinedata> irrigationdata;
 
         public class splinedata
         {
@@ -121,7 +122,18 @@ namespace smiqs.ViewModels.Dashboard
                 this.NotifyPropertyChanged();
             }
         }
-
+        public ObservableCollection<splinedata> IrrigationData
+        {
+            get
+            {
+                return irrigationdata;
+            }
+            set
+            {
+                irrigationdata = value;
+                this.NotifyPropertyChanged();
+            }
+        }
         public ObservableCollection<TransactionChartData> ChartData
         {
             get
@@ -161,6 +173,10 @@ namespace smiqs.ViewModels.Dashboard
         public string realtimevalue { get; set; }
         public string realtimevwcminvalue { get; set; }
         public string realtimevwcmaxvalue { get; set; }
+
+        public string realtimevwcminvaluechart { get; set; }
+        public string realtimevwcmaxvaluechart { get; set; }
+        public string realtimevwcwidth { get; set; }
         #endregion
         public string realtimestamp { get; set; }
 
@@ -621,6 +637,44 @@ namespace smiqs.ViewModels.Dashboard
                 this.NotifyPropertyChanged();
             }
         }
+
+        public string RealTimeVWCMinValueChart
+        {
+            get
+            {
+                return realtimevwcminvaluechart;
+            }
+            set
+            {
+                this.realtimevwcminvaluechart = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public string RealTimeVWCMaxValueChart
+        {
+            get
+            {
+                return realtimevwcmaxvaluechart;
+            }
+            set
+            {
+                this.realtimevwcmaxvaluechart = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public string RealTimeVWCWidth
+        {
+            get
+            {
+                return realtimevwcwidth;
+            }
+            set
+            {
+                this.realtimevwcwidth = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+
         public string TotalSpentText
         {
             get
@@ -905,8 +959,8 @@ GetRequestVWCMax(string Telemetry, string DeviceID)
             {
                 RealTimeVWCMaxValue = IoTCentralResult.value.ToString();
                 DateTime RealTimeStamptemp = IoTCentralResult.timestamp;
-             //   RealTimeStamp = DateTime.Now.Subtract(RealTimeStamptemp).TotalMinutes.ToString();
-
+                //   RealTimeStamp = DateTime.Now.Subtract(RealTimeStamptemp).TotalMinutes.ToString();
+                
             }
             else
             {
@@ -1170,65 +1224,104 @@ GetRequestVWCMax(string Telemetry, string DeviceID)
                         break;
                     case 1:
                         webAPIService = new WebAPIService();
-                        App.SmiqsItems = await webAPIService.GetTelemetriesSmiqs(iccid);
+                        await GetDataFromWebAPI(SmiqsICCID, Sensor);
 
-                        if(Sensor == "VA")
+                       var myTempTelemetries = await webAPIService.GetTelemetriesSmiqs(iccid);
+                        Data = new ObservableCollection<splinedata>();
+                        IrrigationData = new ObservableCollection<splinedata>();
+                        var IrrigationDataGrouped = EventsTelemtries;
+                        if (Sensor == "VA")
                         {
-                           var z = App.SmiqsItems.Where(f => f.SSA != null);
-                           var zz = z.GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
+                           var zz = myTempTelemetries.Where(f => f.SSA != null).GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
                              .Select(s => new {
                                  series = s
                                  ,
                                  timestamp = s.First().eventDate
                                  ,
                                  max = s.Max(x => float.Parse(x.SSA))
-                            });
-                           
+                                 ,
+                                 min=s.Min(x=> float.Parse(x.SSA))
+                                 ,
+                                 elt = s.Where(x=> x.elapsedtime !=null)
+                            }).OrderBy(s => s.timestamp);
+                            float maxTempTelemetries = float.Parse(myTempTelemetries.Select(x => x.SSA).Max());
+                            float minTempTelemetries = float.Parse(myTempTelemetries.Select(x => x.SSA).Min());
+                            maxTempTelemetries += 1;
+                            minTempTelemetries -= 1;
+                            int maxTemplTelemetrieInt = (int)maxTempTelemetries;
+                            int minTempTelemetriesInt = (int)minTempTelemetries;
+                            RealTimeVWCMaxValueChart = maxTemplTelemetrieInt.ToString();
+                            RealTimeVWCMinValueChart = minTempTelemetriesInt.ToString();
+                            int diffe = int.Parse(RealTimeVWCMaxValue) - int.Parse(RealTimeVWCMinValue);
+                            RealTimeVWCWidth = diffe.ToString();
                             foreach (var si in zz)
                             {
+                              
                                 Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
-                            }                            
+                                Data.Add(new splinedata(si.timestamp.ToShortTimeString(), double.Parse(si.elt.First().elapsedtime)));
+                                // Data.Add(new ChartDataModel("Sun", 15));
+                            }
+                            foreach (var igd in IrrigationDataGrouped.Where(dz => dz.eventDate > DateTime.Today.AddDays(-1).AddTicks(-1)).OrderBy(s => s.timestamp))
+                            {
+                           //     IrrigationData.Add(new splinedata(igd.eventDate.ToShortTimeString(), double.Parse(igd.SSA)));
+                            }
                         }
                         if (Sensor == "VB")
                         {
-                            App.SmiqsItems.Where(f => f.SSB != null);
-                            var zb = App.SmiqsItems.GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
+                            var zb = myTempTelemetries.Where(f => f.SSB != null).GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
                             .Select(s => new {
                                 series = s
                                 ,
                                 timestamp = s.First().eventDate
                                 ,
                                 max = s.Max(x => float.Parse(x.SSB))
-                            });
+                            }).OrderBy(s => s.timestamp);
+                            int maxTempTelemetries = int.Parse(myTempTelemetries.Select(x => x.SSB).Max()) + 5;
+                            int minTempTelemetries = int.Parse(myTempTelemetries.Select(x => x.SSB).Min()) - 5;
+                            RealTimeVWCMaxValueChart = maxTempTelemetries.ToString();
+                            RealTimeVWCMinValueChart = minTempTelemetries.ToString();
                             foreach (var si in zb)
                             {
 
-                                Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
+                                 Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
+                               // Data.Add(new ChartDataModel("Sun", 15));
+                            }
 
+                            foreach (var igd in IrrigationDataGrouped.Where(dz => dz.timestamp > DateTime.Today.AddDays(-1).AddTicks(-1)))
+                            {
+                                IrrigationData.Add(new splinedata(igd.timestamp.ToShortTimeString(), double.Parse(igd.SSA)));
                             }
                         }
                         if (Sensor == "VC")
                         {
-                            App.SmiqsItems.Where(f => f.SSC != null);
-                            var zc = App.SmiqsItems.GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
+                            
+                            var zc = myTempTelemetries.Where(f => f.SSC != null).GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
                             .Select(s => new {
                                 series = s
                                 ,
                                 timestamp = s.First().eventDate
                                 ,
                                 max = s.Max(x => float.Parse(x.SSC))
-                            });
+                            }).OrderBy(s => s.timestamp);
+                            int maxTempTelemetries = int.Parse(myTempTelemetries.Select(x => x.SSC).Max()) + 5;
+                            int minTempTelemetries = int.Parse(myTempTelemetries.Select(x => x.SSC).Min()) - 5;
+                            RealTimeVWCMaxValueChart = maxTempTelemetries.ToString();
+                            RealTimeVWCMinValueChart = minTempTelemetries.ToString();
                             foreach (var si in zc)
                             {
 
-                                Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
-
+                                 Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
+                              //  Data.Add(new ChartDataModel("Sun", 15));
+                            }
+                            foreach (var igd in IrrigationDataGrouped.Where(dz => dz.timestamp > DateTime.Today.AddDays(-1).AddTicks(-1)))
+                            {
+                                IrrigationData.Add(new splinedata(igd.timestamp.ToShortTimeString(), double.Parse(igd.SSA)));
                             }
                         }
                         if (Sensor == "VD")
                         {
-                            App.SmiqsItems.Where(f => f.SSD != null);
-                            var zd = App.SmiqsItems.GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
+                            
+                            var zd = myTempTelemetries.Where(f => f.SSD != null).GroupBy(s => s.eventDate.Ticks / TimeSpan.FromHours(3).Ticks)
                             .Select(s => new
                             {
                                 series = s
@@ -1236,13 +1329,21 @@ GetRequestVWCMax(string Telemetry, string DeviceID)
                                 timestamp = s.First().eventDate
                                 ,
                                 max = s.Max(x => float.Parse(x.SSD))
-                            });
+                            }).OrderBy(s => s.timestamp);
+                            int maxTempTelemetries = int.Parse(myTempTelemetries.Select(x => x.SSD).Max()) + 5;
+                            int minTempTelemetries = int.Parse(myTempTelemetries.Select(x => x.SSD).Min()) - 5;
+                            RealTimeVWCMaxValueChart = maxTempTelemetries.ToString();
+                            RealTimeVWCMinValueChart = minTempTelemetries.ToString();
                             Data = new ObservableCollection<splinedata>();
                             foreach (var si in zd)
                             {
 
-                                Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
-
+                                 Data.Add(new splinedata(si.timestamp.ToShortTimeString(), si.max));
+                              //  Data.Add(new ChartDataModel("Sun", 15));
+                            }
+                            foreach (var igd in IrrigationDataGrouped.Where(dz => dz.timestamp > DateTime.Today.AddDays(-1).AddTicks(-1)))
+                            {
+                                IrrigationData.Add(new splinedata(igd.timestamp.ToShortTimeString(), double.Parse(igd.SSA)));
                             }
                         }
                        

@@ -61,21 +61,22 @@ namespace smiqs.Views.Catalog
 
                         Dev.Name = device.deviceName;
                         Dev.Author = device.deviceMode;
-                        Dev.ImagePath = "";
+                        Dev.ImagePath = device.deviceImagePath;
+                        Dev.DeviceType = device.deviceType;
                         // await GetRequest(device.deviceType, device.deviceICCID);
 
                         await GetIrrigationStatus(device.deviceType, device.deviceICCID);
-                        try
-                        {
-                            Stream ms = new MemoryStream(device.deviceImageBytes);
-                            Dev.ImageBytes = device.deviceImageBytes;
-                            Dev.DeviceType = device.deviceType;
-                            Dev.DeviceImageSource = ImageSource.FromStream(() => ms);
-                        }
-                        catch (Exception e)
-                        {
+                    //    try
+                   //     {
+                     //       Stream ms = new MemoryStream(device.deviceImageBytes);
+                            
+                           
+                      //      Dev.DeviceImageSource = ImageSource.FromStream(() => ms);
+                   //     }
+                  //      catch (Exception e)
+                     //   {
 
-                        }
+                    //    }
                         //Dev.ImagePath = ImageSource.FromStream(() => ms);
                         Dev.Date = device.deviceInDate;
                         Dev.AverageReadingTime = device.deviceICCID;

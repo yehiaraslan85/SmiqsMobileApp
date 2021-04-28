@@ -34,7 +34,7 @@ namespace smiqs
         static TelemetryEvents eventsdatabase;
         static DevicesDB devicesdatabase;
         public static List<Models.Device> DevResult = new List<Models.Device>();
-        public static ObservableCollection<Models.Article> ListOfDevices = new ObservableCollection<Models.Article>();
+        public static ObservableCollection<Model> ListOfDevices = new ObservableCollection<Model>();
         public static ObservableCollection<tblSmiqsTelemetry> SmiqsItems = new ObservableCollection<tblSmiqsTelemetry>();
 
         public static string menuicon { get; } = "https://drive.google.com/file/d/1VvlmyJD_iN6N4hLoHzeeGU3WhZiiUzYD/view?usp=sharing";
@@ -51,7 +51,7 @@ namespace smiqs
               {
                   InitializeComponent();
 
-                  MainPage = new NavigationPage(new NoInternetConnectionPage());
+                    MainPage = new NavigationPage(new NoInternetConnectionPage());
 
               }
               else

@@ -220,6 +220,12 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.481</Version>
     </PackageReference>
+    <PackageReference Include="Azure.Storage.Blobs">
+      <Version>12.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Azure.Storage.Files.Shares">
+      <Version>12.6.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.1.0</Version>
     </PackageReference>

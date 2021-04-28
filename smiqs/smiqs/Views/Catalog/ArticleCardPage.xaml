@@ -20,7 +20,9 @@
              NavigationPage.HasBackButton="False"
              NavigationPage.BackButtonTitle="Settings"            
              NavigationPage.HasNavigationBar="False">
-
+    <ContentPage.BindingContext>
+        <viewModel:ArticleCardViewModel />
+    </ContentPage.BindingContext>
     <syncfusion:SfPullToRefresh x:Name="pullToRefresh"
                                     IsRefreshing="{Binding IsRefreshing}" 
                                     PullingThreshold="100"
@@ -157,7 +159,7 @@
                                                     </Grid.ColumnDefinitions>
                                                     <Label x:Name="GarName"  Text="User Name:" Grid.Row="0" Grid.Column="0"/>
 
-                                                    <Entry Text="{Binding Name}" Grid.Row="0" Grid.Column="1"/>
+                                                    <Entry Text="{Binding UserName}" Grid.Row="0" Grid.Column="1"/>
                                                     <Label Text="Password:" Grid.Row="1" Grid.Column="0"/>
                                                     <Entry Text="{Binding Password}" Grid.Row="1" Grid.Column="1"/>
                                                 </Grid>
@@ -221,7 +223,7 @@
 
                                                             <!--  Image of the Article  -->
                                                     <Image
-                                                        Source="{Binding DeviceImageSource}"
+                                                        Source="{Binding ImagePath}"
                                                         
                                                 Aspect="AspectFill"  Grid.Row="1"
                                                 
@@ -341,8 +343,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.BindingContext>
-        <viewModel:ArticleCardViewModel />
-    </ContentPage.BindingContext>
+
     
 </ContentPage>

@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "0UOYHGpnkOmxiW9CREbA7c20YPOSpFKMbTccEO/yskbIYzvBCIZE0rWYinoos7HAlcDiZ9URvfiIAgIldTv/qw==",
+  "dgSpecHash": "bAHF9GfpA39aYvgAiOr1AlGYBrD/xlooUBXxOqrjyDWa+4QVWW36ylMeSlTwVdlM1RQXe/yO+6RRbMB+O6TcsQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AVEVA\\.nuget\\packages\\acr.userdialogs\\7.1.0.481\\acr.userdialogs.7.1.0.481.nupkg.sha512",
+    "C:\\Users\\AVEVA\\.nuget\\packages\\azure.core\\1.8.1\\azure.core.1.8.1.nupkg.sha512",
+    "C:\\Users\\AVEVA\\.nuget\\packages\\azure.storage.blobs\\12.8.1\\azure.storage.blobs.12.8.1.nupkg.sha512",
+    "C:\\Users\\AVEVA\\.nuget\\packages\\azure.storage.common\\12.7.1\\azure.storage.common.12.7.1.nupkg.sha512",
+    "C:\\Users\\AVEVA\\.nuget\\packages\\azure.storage.files.shares\\12.6.1\\azure.storage.files.shares.12.6.1.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\microsoft.appcenter\\4.1.0\\microsoft.appcenter.4.1.0.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\microsoft.appcenter.analytics\\4.1.0\\microsoft.appcenter.analytics.4.1.0.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\microsoft.appcenter.crashes\\4.1.0\\microsoft.appcenter.crashes.4.1.0.nupkg.sha512",
@@ -49,6 +53,7 @@
     "C:\\Users\\AVEVA\\.nuget\\packages\\syncfusion.xamarin.sfrotator\\18.4.0.48\\syncfusion.xamarin.sfrotator.18.4.0.48.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\syncfusion.xamarin.sftabview\\18.4.0.48\\syncfusion.xamarin.sftabview.18.4.0.48.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\AVEVA\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
     "C:\\Users\\AVEVA\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

@@ -5,7 +5,7 @@
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:converter="clr-namespace:smiqs.Converters"
     x:Class="smiqs.Views.Templates.ArticleActivityTemplate"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:viewModel="clr-namespace:smiqs.ViewModels.Catalog" xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
     ios:Page.UseSafeArea="true"
     x:Name="articleActivityTemplate">
 
@@ -18,7 +18,7 @@
             <converter:BooleanToColorConverter x:Key="boolToColorConverter" />
         </ResourceDictionary>
     </StackLayout.Resources>
-
+    
     <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand"  Margin="0,8,16,8">
         <!--buttons:SfSwitch Grid.Row="2" Margin="10"
                       x:Name="sfSwitchA" StateChanging="State_StateChangingA"

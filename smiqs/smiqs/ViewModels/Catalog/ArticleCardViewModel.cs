@@ -53,9 +53,9 @@ namespace smiqs.ViewModels.Catalog
         public string totalspenttext { get; set; }
         public ObservableCollection<Model> articles { get; set; }
         public string realtimestamp { get; set; }
-        #endregion
+        
         public List<Models.Device> DevResult = new List<Models.Device>();
-
+        #endregion
         #region Properties
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace smiqs.ViewModels.Catalog
                 if (isconnected != value)
                 {
                     isconnected = value;
-                    RaisepropertyChanged("IsConnected");
+                    this.NotifyPropertyChanged();
 
 
                 }
@@ -111,7 +111,7 @@ namespace smiqs.ViewModels.Catalog
             {
 
                 isdisconnected = value;
-                RaisepropertyChanged("IsDisconnected");
+                this.NotifyPropertyChanged();
 
             }
         }
@@ -124,7 +124,7 @@ namespace smiqs.ViewModels.Catalog
             set
             {
                 eventsTelemtries = value;
-                RaisepropertyChanged("EventsTelemtries");
+                this.NotifyPropertyChanged();
             }
         }
         public string LastIrrigationDuration
@@ -136,7 +136,7 @@ namespace smiqs.ViewModels.Catalog
             set
             {
                 this.lastirrigationduration = value;
-                RaisepropertyChanged("LastIrrigationDuration");
+                this.NotifyPropertyChanged();
             }
         }
         public string RealStatus
@@ -411,6 +411,27 @@ namespace smiqs.ViewModels.Catalog
             get { return deleteitemTappedCommand; }
             protected set { deleteitemTappedCommand = value; }
         }
+
+        private bool displayPopup;
+
+        public ICommand OpenPopupCommand { get; set; }
+
+        public bool DisplayPopup
+        {
+            get
+            {
+                return displayPopup;
+            }
+            set
+            {
+                displayPopup = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        private void OpenPopup()
+        {
+            DisplayPopup = true;
+        }
         public ArticleCardViewModel()
         {
             this.BookmarkCommand = new Command(this.BookmarkButtonClicked);
@@ -421,8 +442,8 @@ namespace smiqs.ViewModels.Catalog
             this.DeleteItemTappedCommand = new Command(this.DeleteItemButtonClicked);
             PopupAcceptCommand = new Command(PopupAccept); //CanExecute() will be call the PopupAccept method
             ShowPopupCommand = new Command(Popup);  //CanExecute() will be call the Popup method.
+            OpenPopupCommand = new Command(OpenPopup);
 
-            UpdateWeatherWidget();
             UpdateNowUI();
             this.RefreshCommand = new Command(Refresh);
            this.IrrigateCommand = new Command(IrrigateFunction);
@@ -444,8 +465,10 @@ namespace smiqs.ViewModels.Catalog
             }
            */
             Articles = App.ListOfDevices;
+                UpdateWeatherWidget();
+
             }
-            catch(Exception e)
+            catch (Exception e)
             { 
             
             }
@@ -1028,10 +1051,12 @@ GetDataFromWebAPI(string iccid,string sensor)
         /// <param name="obj">The object</param>
         private void FavouriteButtonClicked(object obj)
         {
+           // PopupOpen = true;
+           
             if (obj != null && (obj is Model))
             {
-                string x = (obj as Model).Name;
-                (obj as Model).IsFavourite = (obj as Model).IsFavourite ? false : true;
+                UserName = (obj as Model).Name;
+               (obj as Model).IsFavourite = (obj as Model).IsFavourite ? false : true;
             }
             else
             {
@@ -1233,11 +1258,11 @@ GetDataFromWebAPI(string iccid,string sensor)
 
                         await GetIrrigationStatus(device.deviceType, device.deviceICCID);
                         
-                    Stream ms = new MemoryStream(device.deviceImageBytes);
-                    Dev.ImageBytes = device.deviceImageBytes;
+                   // Stream ms = new MemoryStream(device.deviceImageBytes);
+                  //  Dev.ImageBytes = device.deviceImageBytes;
                     Dev.DeviceType = device.deviceType;
-                    Dev.DeviceImageSource = ImageSource.FromStream(() => ms);
-                   
+                  //  Dev.DeviceImageSource = ImageSource.FromStream(() => ms);
+                    Dev.ImagePath = device.deviceImagePath;
                    
                   
                     //Dev.ImagePath = ImageSource.FromStream(() => ms);

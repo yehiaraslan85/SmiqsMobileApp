@@ -42,6 +42,14 @@
       "frameworks": {
         "monoandroid10.0": {
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.8.1, )"
+            },
+            "Azure.Storage.Files.Shares": {
+              "target": "Package",
+              "version": "[12.6.1, )"
+            },
             "Microsoft.AppCenter.Analytics": {
               "target": "Package",
               "version": "[4.1.0, )"
@@ -274,6 +282,14 @@
             "Acr.UserDialogs": {
               "target": "Package",
               "version": "[7.1.0.481, )"
+            },
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.8.1, )"
+            },
+            "Azure.Storage.Files.Shares": {
+              "target": "Package",
+              "version": "[12.6.1, )"
             },
             "Microsoft.AppCenter.Analytics": {
               "target": "Package",

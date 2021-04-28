@@ -30,8 +30,7 @@
                         <Label Text="Irrigation" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="{OnPlatform Default='0', WPF='0,4,0,0'}" FontSize="12" Grid.Row="0" />
                         <BoxView Grid.Row="1" Color="White" HeightRequest="0.75" Margin="{OnPlatform Default='0', WPF='4,0,4,0'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
                         <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" BackgroundColor="#404041" Spacing="0" Padding="3" Margin="0">
-                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="#CCCCCC" FontAttributes="Bold" FontFamily="Helvetica" FontSize="12" Margin="{OnPlatform Default='0', WPF='3,0,0,0'}" />
-                            <Label Text="{Binding Value,StringFormat=' :  {0}°C'}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="{OnPlatform Default='0', WPF='0,0,3,0'}" FontSize="12" />
+                        <Label Text="{Binding Month}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="#CCCCCC" FontAttributes="Bold" FontFamily="Helvetica" FontSize="12" Margin="{OnPlatform Default='0', WPF='3,0,0,0'}" />
                         </StackLayout>
                     </StackLayout>
                 </DataTemplate>
@@ -328,7 +327,7 @@
 
 
             <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis Maximum="100" Minimum="0" Interval="10">
+                <chart:NumericalAxis Maximum="{Binding RealTimeVWCMaxValueChart}" Minimum="{Binding RealTimeVWCMinValueChart}" Interval="1">
                     <chart:NumericalAxis.AxisLineStyle>
                         <chart:ChartLineStyle StrokeWidth="0">
                         </chart:ChartLineStyle>
@@ -339,7 +338,25 @@
                     <chart:NumericalAxis.LabelStyle>
                         <chart:ChartAxisLabelStyle x:Name="secondaryAxisLabelStyle"/>
                     </chart:NumericalAxis.LabelStyle>
+                    <chart:NumericalAxis.StripLines>
+
+                        <chart:NumericalStripLine Start="{Binding RealTimeVWCMinValue}" Width ="{Binding RealTimeVWCWidth}" Text="" FillColor="LightBlue">
+
+                            <chart:NumericalStripLine.LabelStyle>
+
+                                <chart:ChartStripLineLabelStyle HorizontalAlignment="Near" VerticalAlignment="Center" TextColor="Blue" FontSize="20" FontAttributes="Bold"/>
+
+                            </chart:NumericalStripLine.LabelStyle>
+
+                        </chart:NumericalStripLine>
+
+                    </chart:NumericalAxis.StripLines>
                 </chart:NumericalAxis>
+               
+
+                    
+
+               
             </chart:SfChart.SecondaryAxis>
             <chart:SfChart.Legend>
                 <chart:ChartLegend DockPosition="Bottom" ToggleSeriesVisibility="True" IconWidth="14" IconHeight="14" />
@@ -347,7 +364,7 @@
             <chart:SfChart.ColorModel>
                 <chart:ChartColorModel Palette="Natural" />
             </chart:SfChart.ColorModel>
-            <chart:SplineSeries x:Name="splineSeries1" SplineType="Cardinal" ItemsSource="{Binding Data}" XBindingPath="Month" YBindingPath="Target" StrokeWidth="2" Label="Max VWC" LegendIcon="SeriesType" EnableTooltip="true">
+            <chart:SplineSeries x:Name="splineSeries1" SplineType="Cardinal" ItemsSource="{Binding Data}" XBindingPath="Month" YBindingPath="Target" StrokeWidth="2" Label="Soil Health" LegendIcon="SeriesType" EnableTooltip="true">
 
                 <chart:SplineSeries.DataMarker>
                     <chart:ChartDataMarker ShowLabel="False" ShowMarker="False" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="Transparent">
@@ -363,7 +380,7 @@
                     
                 </chart:SplineSeries.StrokeDashArray>
             </chart:SplineSeries>
-            <chart:SplineSeries x:Name="splineSeries2" SplineType="Cardinal" ItemsSource="{Binding Data}" XBindingPath="Month" YBindingPath="Target" StrokeWidth="2" Label="Irrigations" LegendIcon="SeriesType" EnableTooltip="true" TooltipTemplate="{StaticResource toolTipTemplate1}">
+            <chart:SplineSeries x:Name="splineSeries2" SplineType="Cardinal" ItemsSource="{Binding IrrigationData}" Color="RED" XBindingPath="Month" YBindingPath="Target" StrokeWidth="2" Label="Irrigations" LegendIcon="SeriesType" EnableTooltip="true" TooltipTemplate="{StaticResource toolTipTemplate1}">
 
                 <chart:SplineSeries.DataMarker>
                     <chart:ChartDataMarker ShowLabel="True" ShowMarker="True" MarkerBorderColor="DarkRed" MarkerBorderWidth="2" MarkerColor="Transparent">
