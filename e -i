@@ -1,0 +1,35 @@
+[33m9208c91[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{0}: rebase (abort): updating HEAD
+[33m9208c91[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{1}: rebase (abort): updating HEAD
+[33m9208c91[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{2}: rebase (abort): updating HEAD
+[33m9208c91[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{3}: rebase (abort): updating HEAD
+[33m9208c91[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{4}: commit: a
+[33mb435e95[m HEAD@{5}: reset: moving to HEAD^
+[33m8ccd0c3[m HEAD@{6}: rebase (abort): updating HEAD
+[33m8ccd0c3[m HEAD@{7}: rebase (abort): updating HEAD
+[33m8ccd0c3[m HEAD@{8}: rebase (abort): updating HEAD
+[33m8ccd0c3[m HEAD@{9}: rebase (abort): updating HEAD
+[33m8ccd0c3[m HEAD@{10}: commit: Clean4
+[33mb435e95[m HEAD@{11}: reset: moving to HEAD^
+[33me9d36b3[m HEAD@{12}: commit: Clean3
+[33mb435e95[m HEAD@{13}: commit: Clean3
+[33m127572d[m HEAD@{14}: revert: Revert "Beta V3"
+[33m067157c[m HEAD@{15}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m067157c[m HEAD@{16}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m067157c[m HEAD@{17}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m067157c[m HEAD@{18}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m067157c[m HEAD@{19}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m067157c[m HEAD@{20}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m7e301ca[m HEAD@{21}: reset: moving to 7e301cae1a09802d5cd0df41863b78f2602c6f6d
+[33m645577b[m HEAD@{22}: commit: clean 1
+[33m7e301ca[m HEAD@{23}: commit: Cleaned
+[33m067157c[m HEAD@{24}: reset: moving to 067157c2cda32c04b25788cb6abffe50ab6ef412
+[33m481f151[m HEAD@{25}: commit: Cleaned
+[33m067157c[m HEAD@{26}: commit: Beta V3
+[33m1f3c68a[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{27}: commit: Beta V2 Enabled Multi-Dex and Enabled Release Mode
+[33mc47d916[m HEAD@{28}: commit: Beta V1.2 Enabled Multi-Dex and configured Release mode
+[33m59302b7[m HEAD@{29}: commit: Beta V1.1
+[33m91f3f00[m HEAD@{30}: commit: Beta V1
+[33md4886f2[m HEAD@{31}: commit: testing the push function
+[33m6f31e1b[m HEAD@{32}: commit: First
+[33m4e86425[m HEAD@{33}: commit: First Try
+[33m487ad53[m HEAD@{34}: clone: from https://github.com/yehiaraslan85/SmiqsMobileApp
