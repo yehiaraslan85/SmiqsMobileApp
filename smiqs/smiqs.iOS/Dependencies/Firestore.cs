@@ -43,7 +43,7 @@ namespace smiqs.iOS.Dependencies
                 DateTimetoNSDate(subscription.SubscribedDate)
             };
             var subscriptionDocument = new NSDictionary<NSString, NSObject>(keys, values);
-            Firebase.CloudFirestore.Firestore.SharedInstance.GetCollection("subscriptions").AddDocument(subscriptionDocument);
+            //Firebase.CloudFirestore.Firestore.SharedInstance.GetCollection("subscriptions").AddDocument(subscriptionDocument);
             return true;
             }
             catch(Exception ex)

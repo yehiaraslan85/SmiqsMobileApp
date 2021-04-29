@@ -2,7 +2,7 @@ package crc64549b95826b6997e8;
 
 
 public class MainApplication
-	extends android.app.Application
+	extends androidx.multidex.MultiDexApplication
 	implements
 		mono.android.IGCUserPeer
 {
