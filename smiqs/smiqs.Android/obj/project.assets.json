@@ -8198,6 +8198,7 @@
       "Syncfusion.Xamarin.SfRotator >= 18.4.0.48",
       "Syncfusion.Xamarin.SfTabView >= 18.4.0.48",
       "Xam.Plugin.Media >= 5.0.1",
+      "Xamarin.Android.Support.CustomTabs >= 28.0.0.3",
       "Xamarin.Android.Support.Design >= 28.0.0.3",
       "Xamarin.AndroidX.Leanback >= 1.0.0.7",
       "Xamarin.Auth >= 1.7.0",
@@ -8388,6 +8389,10 @@
           "Xam.Plugin.Media": {
             "target": "Package",
             "version": "[5.0.1, )"
+          },
+          "Xamarin.Android.Support.CustomTabs": {
+            "target": "Package",
+            "version": "[28.0.0.3, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
