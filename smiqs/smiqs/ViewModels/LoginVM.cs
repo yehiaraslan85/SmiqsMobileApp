@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Plugin.FacebookClient;
 using Plugin.GoogleClient;
 using Plugin.GoogleClient.Shared;
-using Refit;
 using smiqs.DataService;
 using smiqs.Models;
 using smiqs.ViewModels.Helpers;
@@ -251,79 +250,14 @@ namespace smiqs.ViewModels
                     await LoginFacebookAsync(authNetwork);
                     break;
                 case "Instagram":
-                    await LoginInstagramAsync(authNetwork);
+                   // await LoginInstagramAsync(authNetwork);
                     break;
                 case "Google":
                     await LoginGoogleAsync(authNetwork);
                     break;
             }
         }
-        async Task LoginInstagramAsync(AuthNetwork authNetwork)
-        {
-            EventHandler<string> onSuccessDelegate = null;
-            EventHandler<string> onErrorDelegate = null;
-            EventHandler onCancelDelegate = null;
-
-            onSuccessDelegate = async (s, a) =>
-            {
-
-                UserDialogs.Instance.ShowLoading("Loading");
-
-                var userResponse = await RestService.For<IInstagramApi>(InstagramApiUrl).GetUser(a);
-
-                if (userResponse.IsSuccessStatusCode)
-                {
-                    var userDataString = await userResponse.Content.ReadAsStringAsync();
-                    //Handling Encoding
-                    var userDataStringFixed = System.Text.RegularExpressions.Regex.Unescape(userDataString);
-
-                    var instagramUser = JsonConvert.DeserializeObject<InstagramUser>(userDataStringFixed);
-                    var socialLoginData = new NetworkAuthData
-                    {
-                        Logo = authNetwork.Icon,
-                        Picture = instagramUser.Data.ProfilePicture,
-                        Foreground = authNetwork.Foreground,
-                        Background = authNetwork.Background,
-                        Name = instagramUser.Data.FullName,
-                        Id = instagramUser.Data.Id
-                    };
-
-                    UserDialogs.Instance.HideLoading();
-                    await App.Current.MainPage.Navigation.PushModalAsync(new HomePage(socialLoginData));
-                }
-                else
-                {
-                    //TODO: Handle instagram user info error
-                    UserDialogs.Instance.HideLoading();
-
-                    await UserDialogs.Instance.AlertAsync("Error", "Houston we have a problem", "Ok");
-                }
-
-                _oAuth2Service.OnSuccess -= onSuccessDelegate;
-                _oAuth2Service.OnCancel -= onCancelDelegate;
-                _oAuth2Service.OnError -= onErrorDelegate;
-            };
-            onErrorDelegate = (s, a) =>
-            {
-                _oAuth2Service.OnSuccess -= onSuccessDelegate;
-                _oAuth2Service.OnCancel -= onCancelDelegate;
-                _oAuth2Service.OnError -= onErrorDelegate;
-                Debug.WriteLine($"ERROR: Instagram, MESSAGE: {a}");
-            };
-            onCancelDelegate = (s, a) =>
-            {
-                _oAuth2Service.OnSuccess -= onSuccessDelegate;
-                _oAuth2Service.OnCancel -= onCancelDelegate;
-                _oAuth2Service.OnError -= onErrorDelegate;
-            };
-
-            _oAuth2Service.OnSuccess += onSuccessDelegate;
-            _oAuth2Service.OnCancel += onCancelDelegate;
-            _oAuth2Service.OnError += onErrorDelegate;
-            _oAuth2Service.Authenticate(InstagramClientId, InstagramScope, new Uri(InstagramAuthorizationUrl), new Uri(InstagramRedirectUrl));
-
-
-        }
+  
 
         async Task LoginFacebookAsync(AuthNetwork authNetwork)
         {

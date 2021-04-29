@@ -425,10 +425,6 @@
               "target": "Package",
               "version": "[5.0.0.2012, )"
             },
-            "refit": {
-              "target": "Package",
-              "version": "[6.0.38, )"
-            },
             "sqlite-net-pcl": {
               "target": "Package",
               "version": "[1.7.335, )"

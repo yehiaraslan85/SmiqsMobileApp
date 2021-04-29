@@ -1224,7 +1224,6 @@
           "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
-          "refit": "6.0.38",
           "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
@@ -2440,7 +2439,6 @@
           "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
-          "refit": "6.0.38",
           "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
@@ -3659,7 +3657,6 @@
           "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
-          "refit": "6.0.38",
           "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
@@ -4878,7 +4875,6 @@
           "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
-          "refit": "6.0.38",
           "sqlite-net-pcl": "1.7.335"
         },
         "compile": {

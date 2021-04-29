@@ -145,7 +145,6 @@ C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\bin\Debug\netstandard2.0\
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\bin\Debug\netstandard2.0\ref\smiqs.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\bin\Debug\netstandard2.0\smiqs.pdb
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Debug\netstandard2.0\smiqs.csprojAssemblyReference.cache
-C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Debug\netstandard2.0\smiqs.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Debug\netstandard2.0\Themes\LightTheme.xaml.g.cs
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Debug\netstandard2.0\Views\Catalog\ArticleCardPage.xaml.g.cs

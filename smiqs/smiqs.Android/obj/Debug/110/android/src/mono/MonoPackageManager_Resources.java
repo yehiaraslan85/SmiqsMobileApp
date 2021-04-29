@@ -77,7 +77,6 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.VersionedParcelable.dll",
 		"Xamarin.AndroidX.ViewPager.dll",
 		"Xamarin.Google.Android.Material.dll",
-		"smiqs.Android.dll",
 		"Acr.UserDialogs.dll",
 		"AndHUD.dll",
 		"Azure.Core.dll",
@@ -107,13 +106,11 @@ public class MonoPackageManager_Resources {
 		"Plugin.GoogleClient.dll",
 		"Plugin.Media.dll",
 		"Plugin.Permissions.dll",
-		"Refit.dll",
 		"SkiaSharp.dll",
 		"SkiaSharp.Extended.dll",
 		"SkiaSharp.Extended.Svg.dll",
 		"SkiaSharp.Views.Android.dll",
 		"SkiaSharp.Views.Forms.dll",
-		"smiqs.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",
@@ -170,7 +167,6 @@ public class MonoPackageManager_Resources {
 		"Syncfusion.SfTabView.XForms.Android.dll",
 		"Syncfusion.SfTabView.XForms.dll",
 		"System.Diagnostics.DiagnosticSource.dll",
-		"System.Net.Http.Json.dll",
 		"System.Text.Encodings.Web.dll",
 		"System.Text.Json.dll",
 		"Validation.dll",
@@ -238,6 +234,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Io.PerfMark.PerfMarkApi.dll",
 		"Xamarin.JavaX.Inject.dll",
 		"Xamarin.Protobuf.JavaLite.dll",
+		"smiqs.Android.dll",
+		"smiqs.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};
