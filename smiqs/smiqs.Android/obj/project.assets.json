@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "MonoAndroid,Version=v10.0": {
+    "MonoAndroid,Version=v11.0": {
       "Acr.UserDialogs/7.1.0.481": {
         "type": "package",
         "dependencies": {
@@ -8255,7 +8255,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "MonoAndroid,Version=v10.0": [
+    "MonoAndroid,Version=v11.0": [
       "Azure.Storage.Blobs >= 12.8.1",
       "Azure.Storage.Files.Shares >= 12.6.1",
       "Microsoft.AppCenter.Analytics >= 4.1.0",
@@ -8333,14 +8333,14 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "monoandroid10.0"
+        "monoandroid11.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "monoandroid10.0": {
+        "monoandroid11.0": {
           "projectReferences": {
             "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj": {
               "projectPath": "C:\\Users\\AVEVA\\source\\repos\\SmiqsMobileApp\\smiqs\\smiqs\\smiqs.csproj"
@@ -8350,7 +8350,7 @@
       }
     },
     "frameworks": {
-      "monoandroid10.0": {
+      "monoandroid11.0": {
         "dependencies": {
           "Azure.Storage.Blobs": {
             "target": "Package",
