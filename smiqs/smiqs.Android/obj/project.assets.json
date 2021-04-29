@@ -1922,11 +1922,11 @@
           "buildTransitive/monoandroid9.0/Xamarin.AndroidX.AsyncLayoutInflater.targets": {}
         }
       },
-      "Xamarin.AndroidX.Browser/1.3.0": {
+      "Xamarin.AndroidX.Browser/1.3.0.5": {
         "type": "package",
         "dependencies": {
-          "Xamarin.AndroidX.Annotation": "1.1.0.7",
-          "Xamarin.AndroidX.Core": "1.3.2",
+          "Xamarin.AndroidX.Annotation": "1.1.0.9",
+          "Xamarin.AndroidX.Core": "1.3.2.3",
           "Xamarin.Google.Guava.ListenableFuture": "1.0.0.2"
         },
         "frameworkAssemblies": [
@@ -1939,7 +1939,7 @@
           "lib/monoandroid90/Xamarin.AndroidX.Browser.dll": {}
         },
         "build": {
-          "buildTransitive/monoandroid90/Xamarin.AndroidX.Browser.targets": {}
+          "buildTransitive/monoandroid9.0/Xamarin.AndroidX.Browser.targets": {}
         }
       },
       "Xamarin.AndroidX.CardView/1.0.0.6": {
@@ -2214,14 +2214,14 @@
           "buildTransitive/monoandroid9.0/Xamarin.AndroidX.Legacy.Support.Core.Utils.targets": {}
         }
       },
-      "Xamarin.AndroidX.Legacy.Support.V4/1.0.0.6": {
+      "Xamarin.AndroidX.Legacy.Support.V4/1.0.0.7": {
         "type": "package",
         "dependencies": {
-          "Xamarin.AndroidX.Core": "1.3.2.1",
-          "Xamarin.AndroidX.Fragment": "1.2.5.4",
-          "Xamarin.AndroidX.Legacy.Support.Core.UI": "1.0.0.7",
-          "Xamarin.AndroidX.Legacy.Support.Core.Utils": "1.0.0.6",
-          "Xamarin.AndroidX.Media": "1.2.1.1"
+          "Xamarin.AndroidX.Core": "1.3.2.3",
+          "Xamarin.AndroidX.Fragment": "1.3.0.1",
+          "Xamarin.AndroidX.Legacy.Support.Core.UI": "1.0.0.8",
+          "Xamarin.AndroidX.Legacy.Support.Core.Utils": "1.0.0.7",
+          "Xamarin.AndroidX.Media": "1.2.1.2"
         },
         "frameworkAssemblies": [
           "Java.Interop"
@@ -2233,7 +2233,7 @@
           "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.dll": {}
         },
         "build": {
-          "buildTransitive/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.targets": {}
+          "buildTransitive/monoandroid9.0/Xamarin.AndroidX.Legacy.Support.V4.targets": {}
         }
       },
       "Xamarin.AndroidX.Lifecycle.Common/2.3.0.1": {
@@ -2407,6 +2407,25 @@
         },
         "build": {
           "buildTransitive/monoandroid9.0/Xamarin.AndroidX.Media.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.MediaRouter/1.2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.AndroidX.Media": "1.2.1.2",
+          "Xamarin.Google.Guava.ListenableFuture": "1.0.0.2"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/Xamarin.AndroidX.MediaRouter.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/Xamarin.AndroidX.MediaRouter.dll": {}
+        },
+        "build": {
+          "buildTransitive/monoandroid9.0/Xamarin.AndroidX.MediaRouter.targets": {}
         }
       },
       "Xamarin.AndroidX.Migration/1.0.8": {
@@ -6699,20 +6718,20 @@
         "xamarin.androidx.asynclayoutinflater.nuspec"
       ]
     },
-    "Xamarin.AndroidX.Browser/1.3.0": {
-      "sha512": "hBnAIIw+nnmuBwzZdPLnalvW5ipx/kWoqlu+bD2lwJW9+Qz15+kdRWpK6BXxCyv60/MOuFSICaU39MlLJ2fG9g==",
+    "Xamarin.AndroidX.Browser/1.3.0.5": {
+      "sha512": "3dH03Bku3D3uJmJWggE8FVYrqYZPTghHKM8F4TKsTpiV03000C0lQQsZQph1f7Zj4ejmet9U+MA4uMAja/TxKg==",
       "type": "package",
-      "path": "xamarin.androidx.browser/1.3.0",
+      "path": "xamarin.androidx.browser/1.3.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "aar/androidx.browser.browser.aar",
-        "build/monoandroid90/Xamarin.AndroidX.Browser.targets",
-        "buildTransitive/monoandroid90/Xamarin.AndroidX.Browser.targets",
+        "build/monoandroid9.0/Xamarin.AndroidX.Browser.targets",
+        "buildTransitive/monoandroid9.0/Xamarin.AndroidX.Browser.targets",
         "lib/monoandroid90/Xamarin.AndroidX.Browser.dll",
         "lib/monoandroid90/Xamarin.AndroidX.Browser.pdb",
-        "xamarin.androidx.browser.1.3.0.nupkg.sha512",
+        "xamarin.androidx.browser.1.3.0.5.nupkg.sha512",
         "xamarin.androidx.browser.nuspec"
       ]
     },
@@ -6940,20 +6959,20 @@
         "xamarin.androidx.legacy.support.core.utils.nuspec"
       ]
     },
-    "Xamarin.AndroidX.Legacy.Support.V4/1.0.0.6": {
-      "sha512": "WXt/okECy9eWy95/30+edq0/4kJT1ZYVYGdR7Rzf3EYuTGYQLWmsEtEKKEk13XyHWGv/xKhGBULAvco0Gq6dTQ==",
+    "Xamarin.AndroidX.Legacy.Support.V4/1.0.0.7": {
+      "sha512": "8fZU/PJ48rUVQouScBDulrbYRmsluD3GoR/klSiEYOubKRPxjy3eW+h2vXeuxDwqisFXp3Q54PNS8qYMvlT6UQ==",
       "type": "package",
-      "path": "xamarin.androidx.legacy.support.v4/1.0.0.6",
+      "path": "xamarin.androidx.legacy.support.v4/1.0.0.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "aar/androidx.legacy.legacy-support-v4.aar",
-        "build/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.targets",
-        "buildTransitive/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.targets",
+        "build/monoandroid9.0/Xamarin.AndroidX.Legacy.Support.V4.targets",
+        "buildTransitive/monoandroid9.0/Xamarin.AndroidX.Legacy.Support.V4.targets",
         "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.dll",
         "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.pdb",
-        "xamarin.androidx.legacy.support.v4.1.0.0.6.nupkg.sha512",
+        "xamarin.androidx.legacy.support.v4.1.0.0.7.nupkg.sha512",
         "xamarin.androidx.legacy.support.v4.nuspec"
       ]
     },
@@ -7112,6 +7131,24 @@
         "proguard/proguard.txt",
         "xamarin.androidx.media.1.2.1.2.nupkg.sha512",
         "xamarin.androidx.media.nuspec"
+      ]
+    },
+    "Xamarin.AndroidX.MediaRouter/1.2.2.1": {
+      "sha512": "mCTuv+H8AlTAsRG10uxYxW0jD83loJcrkpFoI+CywwV1tadxhhtP+RY9k1N3olh6P/T4hpm1+MdTB4IfsiM6ug==",
+      "type": "package",
+      "path": "xamarin.androidx.mediarouter/1.2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "aar/androidx.mediarouter.mediarouter.aar",
+        "build/monoandroid9.0/Xamarin.AndroidX.MediaRouter.targets",
+        "buildTransitive/monoandroid9.0/Xamarin.AndroidX.MediaRouter.targets",
+        "lib/monoandroid90/Xamarin.AndroidX.MediaRouter.dll",
+        "lib/monoandroid90/Xamarin.AndroidX.MediaRouter.pdb",
+        "proguard/proguard.txt",
+        "xamarin.androidx.mediarouter.1.2.2.1.nupkg.sha512",
+        "xamarin.androidx.mediarouter.nuspec"
       ]
     },
     "Xamarin.AndroidX.Migration/1.0.8": {
@@ -8497,7 +8534,10 @@
       "Xam.Plugin.Media >= 5.0.1",
       "Xamarin.Android.Support.CustomTabs >= 28.0.0.3",
       "Xamarin.Android.Support.Design >= 28.0.0.3",
+      "Xamarin.AndroidX.Browser >= 1.3.0.5",
       "Xamarin.AndroidX.Leanback >= 1.0.0.7",
+      "Xamarin.AndroidX.Legacy.Support.V4 >= 1.0.0.7",
+      "Xamarin.AndroidX.MediaRouter >= 1.2.2.1",
       "Xamarin.Auth >= 1.7.0",
       "Xamarin.Azure.NotificationHubs.Android >= 1.1.4.1",
       "Xamarin.Essentials >= 1.6.1",
@@ -8699,9 +8739,21 @@
             "target": "Package",
             "version": "[28.0.0.3, )"
           },
+          "Xamarin.AndroidX.Browser": {
+            "target": "Package",
+            "version": "[1.3.0.5, )"
+          },
           "Xamarin.AndroidX.Leanback": {
             "target": "Package",
             "version": "[1.0.0.7, )"
+          },
+          "Xamarin.AndroidX.Legacy.Support.V4": {
+            "target": "Package",
+            "version": "[1.0.0.7, )"
+          },
+          "Xamarin.AndroidX.MediaRouter": {
+            "target": "Package",
+            "version": "[1.2.2.1, )"
           },
           "Xamarin.Auth": {
             "target": "Package",

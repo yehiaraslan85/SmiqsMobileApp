@@ -184,9 +184,21 @@
               "target": "Package",
               "version": "[28.0.0.3, )"
             },
+            "Xamarin.AndroidX.Browser": {
+              "target": "Package",
+              "version": "[1.3.0.5, )"
+            },
             "Xamarin.AndroidX.Leanback": {
               "target": "Package",
               "version": "[1.0.0.7, )"
+            },
+            "Xamarin.AndroidX.Legacy.Support.V4": {
+              "target": "Package",
+              "version": "[1.0.0.7, )"
+            },
+            "Xamarin.AndroidX.MediaRouter": {
+              "target": "Package",
+              "version": "[1.2.2.1, )"
             },
             "Xamarin.Auth": {
               "target": "Package",
