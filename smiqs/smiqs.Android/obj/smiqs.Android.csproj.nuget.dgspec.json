@@ -64,6 +64,10 @@
               "target": "Package",
               "version": "[4.2.0, )"
             },
+            "Microsoft.Azure.NotificationHubs": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Plugin.CurrentActivity": {
               "target": "Package",
               "version": "[2.1.0.4, )"
@@ -306,6 +310,10 @@
             "Microsoft.Azure.Mobile.Client": {
               "target": "Package",
               "version": "[4.2.0, )"
+            },
+            "Microsoft.Azure.NotificationHubs": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",

@@ -111,7 +111,6 @@ public class MonoPackageManager_Resources {
 		"SkiaSharp.Extended.Svg.dll",
 		"SkiaSharp.Views.Android.dll",
 		"SkiaSharp.Views.Forms.dll",
-		"smiqs.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",
@@ -236,6 +235,14 @@ public class MonoPackageManager_Resources {
 		"Xamarin.JavaX.Inject.dll",
 		"Xamarin.Protobuf.JavaLite.dll",
 		"smiqs.Android.dll",
+		"Microsoft.Azure.NotificationHubs.dll",
+		"Microsoft.Extensions.Caching.Abstractions.dll",
+		"Microsoft.Extensions.Caching.Memory.dll",
+		"Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+		"Microsoft.Extensions.Logging.Abstractions.dll",
+		"Microsoft.Extensions.Options.dll",
+		"Microsoft.Extensions.Primitives.dll",
+		"smiqs.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

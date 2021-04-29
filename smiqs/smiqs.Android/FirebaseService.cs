@@ -84,7 +84,7 @@ namespace smiqs.Droid.Overrides
 
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetContentTitle("Notification from Smiqs")
-                .SetSmallIcon(Resource.Drawable.ic_launcher)
+                .SetSmallIcon(Resource.Drawable.ic_arrow_back)
                 .SetContentText(messageBody)
                 .SetAutoCancel(true)
                 .SetShowWhen(false)
