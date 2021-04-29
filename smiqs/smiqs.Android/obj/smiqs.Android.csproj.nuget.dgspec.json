@@ -72,10 +72,6 @@
               "target": "Package",
               "version": "[6.0.1, )"
             },
-            "Refit": {
-              "target": "Package",
-              "version": "[6.0.38, )"
-            },
             "SkiaSharp.Extended": {
               "target": "Package",
               "version": "[1.60.0, )"

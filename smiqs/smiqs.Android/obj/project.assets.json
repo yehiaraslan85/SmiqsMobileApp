@@ -8263,7 +8263,6 @@
       "Microsoft.Azure.Mobile.Client >= 4.2.0",
       "Plugin.CurrentActivity >= 2.1.0.4",
       "Plugin.Permissions >= 6.0.1",
-      "Refit >= 6.0.38",
       "SkiaSharp.Extended >= 1.60.0",
       "SkiaSharp.Svg >= 1.60.0",
       "SkiaSharp.Views.Forms >= 2.80.2",
@@ -8379,10 +8378,6 @@
           "Plugin.Permissions": {
             "target": "Package",
             "version": "[6.0.1, )"
-          },
-          "Refit": {
-            "target": "Package",
-            "version": "[6.0.38, )"
           },
           "SkiaSharp.Extended": {
             "target": "Package",

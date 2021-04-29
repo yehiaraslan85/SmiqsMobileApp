@@ -50,7 +50,6 @@
     <PackageReference Include="Plugin.FacebookClient" Version="2.2.1" />
     <PackageReference Include="Plugin.GoogleClient" Version="2.1.12" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
-    <PackageReference Include="refit" Version="6.0.38" />
     <PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
     <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
