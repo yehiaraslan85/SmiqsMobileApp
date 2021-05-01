@@ -82,6 +82,7 @@ Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll
 Xamarin.AndroidX.Loader.dll
 Xamarin.AndroidX.LocalBroadcastManager.dll
 Xamarin.AndroidX.Media.dll
+Xamarin.AndroidX.MediaRouter.dll
 Xamarin.AndroidX.MultiDex.dll
 Xamarin.AndroidX.Print.dll
 Xamarin.AndroidX.RecyclerView.dll
@@ -192,6 +193,7 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
+androidx.mediarouter.mediarouter.aar
 androidx.leanback.leanback.aar
 playservicesbasement-17.6.0.aar
 playservicestasks-17.2.1.aar

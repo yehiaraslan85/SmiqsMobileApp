@@ -133,7 +133,7 @@ namespace smiqs.iOS
         }
         string ListenConnectionString { get; set; } = "Endpoint=sb://smiqsnhns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=rJX1V2cFu98PJBSLzjopcUUiXVQkb+jdfoHfn5UWbhs=";
         string NotificationHubName { get; set; } = "smiqsnh";
-        string[] SubscriptionTags { get; set; } = { "default,"};
+        string[] SubscriptionTags { get; set; } = { "8997103101022345764," };
         string APNTemplateBody { get; set; } = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -153,7 +153,7 @@ namespace smiqs.iOS
             var Devices = App.DevicesDatabase.getAllDevices();
                 if (Devices.Result.Count == 0)
                 {
-                    list.Add("default");
+                    list.Add("8997103101022345764");
                 }
                 else
                 {
@@ -162,7 +162,7 @@ namespace smiqs.iOS
                         list.Add(device.deviceICCID);
                     }
                 }
-                SubscriptionTags = list.ToArray();
+             //   SubscriptionTags = list.ToArray();
                 
                 var tags = new NSSet(SubscriptionTags);
                 Hub.RegisterNative(deviceToken, tags, (errorCallback) =>

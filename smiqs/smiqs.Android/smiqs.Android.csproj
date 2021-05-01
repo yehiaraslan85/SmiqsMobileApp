@@ -235,7 +235,7 @@
   <ItemGroup>
     <Compile Include="Dependencies\Auth.cs" />
     <Compile Include="Dependencies\Firestore.cs" />
-    <Compile Include="FirebaseService.cs" />
+    <Compile Include="Overrides\FirebaseService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Renderers\BorderlessEntryRenderer.cs" />
