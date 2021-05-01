@@ -59,3 +59,4 @@ C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Release\netstandard2.
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Release\netstandard2.0\smiqs.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Release\netstandard2.0\ref\smiqs.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Release\netstandard2.0\smiqs.pdb
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs\obj\Release\netstandard2.0\smiqs.csprojAssemblyReference.cache
