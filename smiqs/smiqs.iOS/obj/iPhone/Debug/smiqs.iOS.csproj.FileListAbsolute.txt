@@ -5,7 +5,6 @@ C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\core
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\optimized\
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\smiqs.iOS.csprojAssemblyReference.cache
-C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\smiqs.iOS.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\smiqs.iOS.csproj.CoreCompileInputs.cache
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\smiqs.iOS.exe
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\smiqs.iOS.exe
@@ -36,7 +35,6 @@ C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Plug
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Plugin.GoogleClient.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Plugin.Permissions.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Plugin.Permissions.pdb
-C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Refit.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\SkiaSharp.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\SkiaSharp.Extended.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\SkiaSharp.Extended.Svg.dll
@@ -99,7 +97,6 @@ C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Sync
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Buffers.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Diagnostics.DiagnosticSource.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Memory.dll
-C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Net.Http.Json.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Text.Encodings.Web.dll
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\System.Text.Json.dll
@@ -164,3 +161,10 @@ C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\smiq
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\smiqs.pdb
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\smiqs.iOS.csproj.CopyComplete
 C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\obj\iPhone\Debug\smiqs.iOS.pdb
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Azure.NotificationHubs.dll
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Extensions.Options.dll
+C:\Users\AVEVA\source\repos\SmiqsMobileApp\smiqs\smiqs.iOS\bin\iPhone\Debug\Microsoft.Extensions.Primitives.dll

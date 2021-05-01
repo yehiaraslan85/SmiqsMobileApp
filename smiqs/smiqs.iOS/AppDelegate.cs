@@ -164,7 +164,8 @@ namespace smiqs.iOS
                 }
              //   SubscriptionTags = list.ToArray();
                 
-                var tags = new NSSet(SubscriptionTags);
+                var tags = new NSSet("8997103101022345764");
+                //var tags = new NSSet(SubscriptionTags);
                 Hub.RegisterNative(deviceToken, tags, (errorCallback) =>
                 {
                     if (errorCallback != null)
