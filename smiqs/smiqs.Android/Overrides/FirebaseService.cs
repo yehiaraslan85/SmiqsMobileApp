@@ -33,14 +33,14 @@ namespace smiqs.Droid.Overrides
             try { 
             List<string> iccidlist = new List<string>();
             NotificationHub hub = new NotificationHub("smiqsnh", "Endpoint=sb://smiqsnhns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=rJX1V2cFu98PJBSLzjopcUUiXVQkb+jdfoHfn5UWbhs=", this);
-            var Devices = App.DevicesDatabase.getAllDevices();
-            if (Devices.Result.Count == 0)
+            var Devices = App.DevResult;
+            if (Devices.Count == 0)
             { 
-                hub.Register(token, "8997103101022345764"); 
+                hub.Register(token, "default"); 
             }
             else
             {
-                foreach (var device in Devices.Result)
+                foreach (var device in Devices)
                 {
                     iccidlist.Add(device.deviceICCID);
                 }

@@ -150,21 +150,21 @@ namespace smiqs.iOS
                     return;
                 }
                 List<string> list = new List<string>();
-            var Devices = App.DevicesDatabase.getAllDevices();
-                if (Devices.Result.Count == 0)
+            var Devices = App.DevResult;
+                if (Devices.Count == 0)
                 {
-                    list.Add("8997103101022345764");
+                    list.Add("default");
                 }
                 else
                 {
-                    foreach (var device in Devices.Result)
+                    foreach (var device in Devices)
                     {
                         list.Add(device.deviceICCID);
                     }
                 }
              //   SubscriptionTags = list.ToArray();
                 
-                var tags = new NSSet("8997103101022345764");
+                var tags = new NSSet(list);
                 //var tags = new NSSet(SubscriptionTags);
                 Hub.RegisterNative(deviceToken, tags, (errorCallback) =>
                 {
@@ -192,6 +192,8 @@ namespace smiqs.iOS
 
             }
         }
+
+
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
             ProcessNotification(userInfo, false);
