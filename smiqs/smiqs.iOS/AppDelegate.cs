@@ -133,7 +133,7 @@ namespace smiqs.iOS
         }
         string ListenConnectionString { get; set; } = "Endpoint=sb://smiqsnhns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=rJX1V2cFu98PJBSLzjopcUUiXVQkb+jdfoHfn5UWbhs=";
         string NotificationHubName { get; set; } = "smiqsnh";
-        string[] SubscriptionTags { get; set; } = { "8997103101022345764," };
+        string[] SubscriptionTags { get; set; } = { "default," };
         string APNTemplateBody { get; set; } = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -150,7 +150,11 @@ namespace smiqs.iOS
                     return;
                 }
                 List<string> list = new List<string>();
-            var Devices = App.DevResult;
+                var Devices = App.DevResult;
+                var pushView = UIAlertController.Create("You have a new message", App.DevResult.ToArray().ToString(), UIAlertControllerStyle.Alert);
+                pushView.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, alert => Console.WriteLine("Push message, ok button was clicked")));
+                Window.MakeKeyAndVisible();
+                this.Window.RootViewController.PresentViewController(pushView, true, null);
                 if (Devices.Count == 0)
                 {
                     list.Add("default");
@@ -162,10 +166,10 @@ namespace smiqs.iOS
                         list.Add(device.deviceICCID);
                     }
                 }
-             //   SubscriptionTags = list.ToArray();
+                SubscriptionTags = list.ToArray();
                 
-                var tags = new NSSet(list);
-                //var tags = new NSSet(SubscriptionTags);
+               // var tags = new NSSet(list);
+                var tags = new NSSet(SubscriptionTags);
                 Hub.RegisterNative(deviceToken, tags, (errorCallback) =>
                 {
                     if (errorCallback != null)

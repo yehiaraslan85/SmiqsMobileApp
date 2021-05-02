@@ -47,6 +47,8 @@ namespace smiqs.Views.Catalog
             }
             else
             {
+               
+
                 foreach (var device in App.DevResult)
                 {
                     try
@@ -58,7 +60,6 @@ namespace smiqs.Views.Catalog
                         // CalculateTotalCostPerMonth(device.deviceICCID,device.deviceType);
                         // Updates the recent irrigation time
                         await UpdateDeviceStatusAsync(device.deviceICCID, device.deviceType);
-
                         Dev.Name = device.deviceName;
                         Dev.Author = device.deviceMode;
                         Dev.ImagePath = device.deviceImagePath;
@@ -85,6 +86,7 @@ namespace smiqs.Views.Catalog
                         Dev.FavouritesCount = LastIrrigationDuration;
                         App.ListOfDevices.Add(Dev);
                        await InitiateDBAsync(device.deviceICCID, device.deviceType);
+                        
                     }
                     catch (Exception ex)
                     {
