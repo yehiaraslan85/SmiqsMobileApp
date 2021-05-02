@@ -151,10 +151,11 @@ namespace smiqs.iOS
                 }
                 List<string> list = new List<string>();
                 var Devices = App.DevResult;
-                var pushView = UIAlertController.Create("You have a new message", App.DevResult.ToArray().ToString(), UIAlertControllerStyle.Alert);
-                pushView.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, alert => Console.WriteLine("Push message, ok button was clicked")));
-                Window.MakeKeyAndVisible();
-                this.Window.RootViewController.PresentViewController(pushView, true, null);
+                
+               // var pushView = UIAlertController.Create("You have a new message", App.DevResult.ToArray().ToString(), UIAlertControllerStyle.Alert);
+             //   pushView.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, alert => Console.WriteLine("Push message, ok button was clicked")));
+              //  Window.MakeKeyAndVisible();
+             //   this.Window.RootViewController.PresentViewController(pushView, true, null);
                 if (Devices.Count == 0)
                 {
                     list.Add("default");
